@@ -1,4 +1,4 @@
-package dydx
+package zogux
 
 import (
 	"context"
@@ -22,7 +22,7 @@ import (
 var _ mmclient.MarketMapFetcher = &SwitchOverFetcher{}
 
 // SwitchOverFetcher is an implementation of a RestAPIFetcher that wraps a
-// dydx x/prices market map fetcher and a x/marketmap fetcher. The fetcher
+// zogux x/prices market map fetcher and a x/marketmap fetcher. The fetcher
 // operates by first fetching the market map from the x/prices API and then
 // fetching the market map from the x/marketmap API. The fetcher will switch
 // over to the x/marketmap API the first time it receives a non-nil market map
@@ -30,7 +30,7 @@ var _ mmclient.MarketMapFetcher = &SwitchOverFetcher{}
 type SwitchOverFetcher struct {
 	logger *zap.Logger
 
-	// dydxPricesFetcher is the fetcher for the dydx x/prices market map.
+	// zoguxPricesFetcher is the fetcher for the zogux x/prices market map.
 	pricesFetcher mmclient.MarketMapFetcher
 	// marketmapFetcher is the fetcher for the x/marketmap market map.
 	marketmapFetcher mmclient.MarketMapFetcher
@@ -40,7 +40,7 @@ type SwitchOverFetcher struct {
 }
 
 // NewDefaultSwitchOverMarketMapFetcher returns a new SwitchOverProvider with the default
-// dYdX x/prices and x/marketmap fetchers.
+// Zogux x/prices and x/marketmap fetchers.
 func NewDefaultSwitchOverMarketMapFetcher(
 	logger *zap.Logger,
 	api config.APIConfig,
@@ -66,7 +66,7 @@ func NewDefaultSwitchOverMarketMapFetcher(
 		return nil, fmt.Errorf("metrics is nil")
 	}
 
-	// Construct the dYdX x/prices API handler.
+	// Construct the Zogux x/prices API handler.
 	pricesAPIHandler, err := NewAPIHandler(logger, api)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,7 @@ func NewDefaultSwitchOverMarketMapFetcher(
 		return nil, err
 	}
 
-	// Construct the dYdX x/marketmap API handler.
+	// Construct the Zogux x/marketmap API handler.
 	conn, err := slinkygrpc.NewClient(
 		api.Endpoints[1].URL,
 		grpc.WithTransportCredentials(insecure.NewCredentials()),

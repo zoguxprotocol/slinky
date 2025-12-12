@@ -1,5 +1,5 @@
-FROM ghcr.io/dydxprotocol/slinky-base AS builder
-LABEL org.opencontainers.image.source="https://github.com/dydxprotocol/slinky"
+FROM ghcr.io/zoguxprotocol/slinky-base AS builder
+LABEL org.opencontainers.image.source="https://github.com/zoguxprotocol/slinky"
 
 WORKDIR /src/slinky
 ENV GOCACHE=/root/.cache/go-build

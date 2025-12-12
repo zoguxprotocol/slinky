@@ -2,8 +2,8 @@ package tickermetadata
 
 import "encoding/json"
 
-// DyDx is the Ticker.Metadata_JSON published to every Ticker in the x/marketmap module on dYdX.
-type DyDx struct {
+// Zogux is the Ticker.Metadata_JSON published to every Ticker in the x/marketmap module on Zogux.
+type Zogux struct {
 	// ReferencePrice gives a spot price for that Ticker at the point in time when the ReferencePrice was updated.
 	// You should _not_ use this for up-to-date/instantaneous spot pricing data since it is updated infrequently.
 	// The price is scaled by Ticker.Decimals.
@@ -22,9 +22,9 @@ type DyDx struct {
 	CrossLaunch bool `json:"cross_launch,omitempty"`
 }
 
-// NewDyDx returns a new DyDx instance.
-func NewDyDx(referencePrice, liquidity uint64, aggregateIDs []AggregatorID, crossLaunch bool) DyDx {
-	return DyDx{
+// NewZogux returns a new Zogux instance.
+func NewZogux(referencePrice, liquidity uint64, aggregateIDs []AggregatorID, crossLaunch bool) Zogux {
+	return Zogux{
 		ReferencePrice: referencePrice,
 		Liquidity:      liquidity,
 		AggregateIDs:   aggregateIDs,
@@ -32,21 +32,21 @@ func NewDyDx(referencePrice, liquidity uint64, aggregateIDs []AggregatorID, cros
 	}
 }
 
-// MarshalDyDx returns the JSON byte encoding of the DyDx.
-func MarshalDyDx(m DyDx) ([]byte, error) {
+// MarshalZogux returns the JSON byte encoding of the Zogux.
+func MarshalZogux(m Zogux) ([]byte, error) {
 	return json.Marshal(m)
 }
 
-// DyDxFromJSONString returns a DyDx instance from a JSON string.
-func DyDxFromJSONString(jsonString string) (DyDx, error) {
-	var elem DyDx
+// ZoguxFromJSONString returns a Zogux instance from a JSON string.
+func ZoguxFromJSONString(jsonString string) (Zogux, error) {
+	var elem Zogux
 	err := json.Unmarshal([]byte(jsonString), &elem)
 	return elem, err
 }
 
-// DyDxFromJSONBytes returns a DyDx instance from JSON bytes.
-func DyDxFromJSONBytes(jsonBytes []byte) (DyDx, error) {
-	var elem DyDx
+// ZoguxFromJSONBytes returns a Zogux instance from JSON bytes.
+func ZoguxFromJSONBytes(jsonBytes []byte) (Zogux, error) {
+	var elem Zogux
 	err := json.Unmarshal(jsonBytes, &elem)
 	return elem, err
 }

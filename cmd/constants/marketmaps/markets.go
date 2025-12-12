@@ -816,10 +816,10 @@ var (
           }
         ]
       },
-      "DYDX/USD": {
+      "ZOGUX/USD": {
         "ticker": {
           "currency_pair": {
-            "Base": "DYDX",
+            "Base": "ZOGUX",
             "Quote": "USD"
           },
           "decimals": 9,
@@ -4688,10 +4688,10 @@ var (
 			  }
 			]
 		  },
-		  "DYDX/USD": {
+		  "ZOGUX/USD": {
 			"ticker": {
 			  "currency_pair": {
-				"Base": "DYDX",
+				"Base": "ZOGUX",
 				"Quote": "USD"
 			  },
 			  "decimals": 9,
@@ -4701,7 +4701,7 @@ var (
 			"provider_configs": [
 			  {
 				"name": "binance_ws",
-				"off_chain_ticker": "DYDXUSDT",
+				"off_chain_ticker": "ZOGUXUSDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -4709,7 +4709,7 @@ var (
 			  },
 			  {
 				"name": "bybit_ws",
-				"off_chain_ticker": "DYDXUSDT",
+				"off_chain_ticker": "ZOGUXUSDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -4717,7 +4717,7 @@ var (
 			  },
 			  {
 				"name": "gate_ws",
-				"off_chain_ticker": "DYDX_USDT",
+				"off_chain_ticker": "ZOGUX_USDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -4725,7 +4725,7 @@ var (
 			  },
 			  {
 				"name": "kucoin_ws",
-				"off_chain_ticker": "DYDX-USDT",
+				"off_chain_ticker": "ZOGUX-USDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -4733,7 +4733,7 @@ var (
 			  },
 			  {
 				"name": "mexc_ws",
-				"off_chain_ticker": "DYDXUSDT",
+				"off_chain_ticker": "ZOGUXUSDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -4741,7 +4741,7 @@ var (
 			  },
 			  {
 				"name": "okx_ws",
-				"off_chain_ticker": "DYDX-USDT",
+				"off_chain_ticker": "ZOGUX-USDT",
 				"normalize_by_pair": {
 				  "Base": "USDT",
 				  "Quote": "USD"
@@ -8475,10 +8475,10 @@ var (
 			  }
 			]
 		  },
-		  "DYDX/USD": {
+		  "ZOGUX/USD": {
 			"ticker": {
 			  "currency_pair": {
-				"Base": "DYDX",
+				"Base": "ZOGUX",
 				"Quote": "USD"
 			  },
 			  "decimals": 9,
@@ -8488,7 +8488,7 @@ var (
 			"provider_configs": [
 			  {
 				"name": "coingecko_api",
-				"off_chain_ticker": "dydx/usd"
+				"off_chain_ticker": "zogux/usd"
 			  }
 			]
 		  },

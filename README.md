@@ -86,10 +86,10 @@ We have an extensive suite of metrics available to validators and chain operator
 
 ---
 
-## dYdX Fork
+## Zogux Fork
 
 ### Slinky vs. Connect Rename
 
 * Skip renamed their repo (and code refs) from Slinky --> Connect for branding purposes.
 * Unfortunately it is impossible to update V4 protocol to use the renamed version, as message names etc. were changed. This would cause downtime during the interval when validators have updated `v4-chain` to use the rename but have not yet updated sidecar (or vice-versa).
-* As a result, the dYdX fork of `skip-mev/connect` has chosen to roll back to the pre-rename state, `slinky`, as the base for future development (along with backporting any essential post-rename changes to functionality).
+* As a result, the Zogux fork of `skip-mev/connect` has chosen to roll back to the pre-rename state, `slinky`, as the base for future development (along with backporting any essential post-rename changes to functionality).

@@ -1,4 +1,4 @@
-package dydx_test
+package zogux_test
 
 import (
 	"context"
@@ -12,7 +12,7 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/zoguxprotocol/slinky/oracle/config"
-	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
 	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
 	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
 	apihandlermocks "github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
@@ -43,7 +43,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 		{
 			name:    "wrong api name",
 			logger:  zap.NewNop(),
-			api:     dydx.DefaultAPIConfig,
+			api:     zogux.DefaultAPIConfig,
 			rh:      nil,
 			metrics: nil,
 			err:     true,
@@ -52,7 +52,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 			name:   "missing endpoints",
 			logger: zap.NewNop(),
 			api: config.APIConfig{
-				Name:             dydx.SwitchOverAPIHandlerName,
+				Name:             zogux.SwitchOverAPIHandlerName,
 				Atomic:           true,
 				Enabled:          true,
 				Timeout:          20 * time.Second, // Set a high timeout to account for slow API responses in the case where many markets are queried.
@@ -72,7 +72,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 		{
 			name:    "nil request handler",
 			logger:  zap.NewNop(),
-			api:     dydx.DefaultSwitchOverAPIConfig,
+			api:     zogux.DefaultSwitchOverAPIConfig,
 			rh:      nil,
 			metrics: metrics.NewNopAPIMetrics(),
 			err:     true,
@@ -80,7 +80,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 		{
 			name:    "nil metrics",
 			logger:  zap.NewNop(),
-			api:     dydx.DefaultSwitchOverAPIConfig,
+			api:     zogux.DefaultSwitchOverAPIConfig,
 			rh:      apihandlermocks.NewRequestHandler(t),
 			metrics: nil,
 			err:     true,
@@ -88,7 +88,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 		{
 			name:    "valid",
 			logger:  zap.NewNop(),
-			api:     dydx.DefaultSwitchOverAPIConfig,
+			api:     zogux.DefaultSwitchOverAPIConfig,
 			rh:      apihandlermocks.NewRequestHandler(t),
 			metrics: metrics.NewNopAPIMetrics(),
 			err:     false,
@@ -97,7 +97,7 @@ func TestDefaultSwitchOverProvider(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
-			_, err := dydx.NewDefaultSwitchOverMarketMapFetcher(tc.logger, tc.api, tc.rh, tc.metrics)
+			_, err := zogux.NewDefaultSwitchOverMarketMapFetcher(tc.logger, tc.api, tc.rh, tc.metrics)
 			if tc.err {
 				require.Error(t, err)
 				return
@@ -147,7 +147,7 @@ func TestNewSwitchOverAPIHandler(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
-			_, err := dydx.NewSwitchOverFetcher(tc.logger, tc.pricesFetcher, tc.marketmapFetcher, metrics.NewNopAPIMetrics())
+			_, err := zogux.NewSwitchOverFetcher(tc.logger, tc.pricesFetcher, tc.marketmapFetcher, metrics.NewNopAPIMetrics())
 			if tc.err {
 				require.Error(t, err)
 				return
@@ -162,7 +162,7 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 	mmf := apihandlermocks.NewAPIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse](t)
 	metrics := apimetricsmocks.NewAPIMetrics(t)
 
-	fetcher, err := dydx.NewSwitchOverFetcher(zap.NewNop(), pf, mmf, metrics)
+	fetcher, err := zogux.NewSwitchOverFetcher(zap.NewNop(), pf, mmf, metrics)
 	require.NoError(t, err)
 
 	cases := []struct {
@@ -177,7 +177,7 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 			pricesFetcher: func(pf *apihandlermocks.APIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse]) {
 				resp := mmclient.NewMarketMapResponse(
 					mmclient.ResolvedMarketMap{
-						dydx.DYDXChain: mmclient.NewMarketMapResult(
+						zogux.ZOGUXChain: mmclient.NewMarketMapResult(
 							&mmtypes.MarketMapResponse{},
 							time.Date(2021, 1, 1, 0, 0, 0, 0, time.UTC),
 						),
@@ -194,11 +194,11 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 				mmf.On("Fetch", mock.Anything, mock.Anything).Return(resp).Once()
 			},
 			metrics: func(m *apimetricsmocks.APIMetrics) {
-				m.On("AddProviderResponse", dydx.Name, strings.ToLower(dydx.DYDXChain.String()), providertypes.OK).Once()
+				m.On("AddProviderResponse", zogux.Name, strings.ToLower(zogux.ZOGUXChain.String()), providertypes.OK).Once()
 			},
 			resp: mmclient.NewMarketMapResponse(
 				mmclient.ResolvedMarketMap{
-					dydx.DYDXChain: mmclient.NewMarketMapResult(
+					zogux.ZOGUXChain: mmclient.NewMarketMapResult(
 						&mmtypes.MarketMapResponse{},
 						time.Date(2021, 1, 1, 0, 0, 0, 0, time.UTC),
 					),
@@ -213,7 +213,7 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 			marketmapFetcher: func(mmf *apihandlermocks.APIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse]) {
 				resp := mmclient.NewMarketMapResponse(
 					mmclient.ResolvedMarketMap{
-						dydx.DYDXChain: mmclient.NewMarketMapResult(
+						zogux.ZOGUXChain: mmclient.NewMarketMapResult(
 							&mmtypes.MarketMapResponse{},
 							time.Date(2021, 1, 1, 0, 0, 0, 0, time.UTC),
 						),
@@ -223,11 +223,11 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 				mmf.On("Fetch", mock.Anything, mock.Anything).Return(resp).Once()
 			},
 			metrics: func(m *apimetricsmocks.APIMetrics) {
-				m.On("AddProviderResponse", marketmap.Name, strings.ToLower(dydx.DYDXChain.String()), providertypes.OK).Once()
+				m.On("AddProviderResponse", marketmap.Name, strings.ToLower(zogux.ZOGUXChain.String()), providertypes.OK).Once()
 			},
 			resp: mmclient.NewMarketMapResponse(
 				mmclient.ResolvedMarketMap{
-					dydx.DYDXChain: mmclient.NewMarketMapResult(
+					zogux.ZOGUXChain: mmclient.NewMarketMapResult(
 						&mmtypes.MarketMapResponse{},
 						time.Date(2021, 1, 1, 0, 0, 0, 0, time.UTC),
 					),
@@ -243,7 +243,7 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 				resp := mmclient.NewMarketMapResponse(
 					make(mmclient.ResolvedMarketMap),
 					mmclient.UnResolvedMarketMap{
-						dydx.DYDXChain: providertypes.UnresolvedResult{
+						zogux.ZOGUXChain: providertypes.UnresolvedResult{
 							ErrorWithCode: providertypes.NewErrorWithCode(
 								fmt.Errorf("error"),
 								providertypes.ErrorAPIGeneral,
@@ -254,12 +254,12 @@ func TestSwitchOverProvider_Fetch(t *testing.T) {
 				mmf.On("Fetch", mock.Anything, mock.Anything).Return(resp).Once()
 			},
 			metrics: func(m *apimetricsmocks.APIMetrics) {
-				m.On("AddProviderResponse", marketmap.Name, strings.ToLower(dydx.DYDXChain.String()), providertypes.ErrorAPIGeneral).Once()
+				m.On("AddProviderResponse", marketmap.Name, strings.ToLower(zogux.ZOGUXChain.String()), providertypes.ErrorAPIGeneral).Once()
 			},
 			resp: mmclient.NewMarketMapResponse(
 				make(mmclient.ResolvedMarketMap),
 				mmclient.UnResolvedMarketMap{
-					dydx.DYDXChain: providertypes.UnresolvedResult{
+					zogux.ZOGUXChain: providertypes.UnresolvedResult{
 						ErrorWithCode: providertypes.NewErrorWithCode(
 							fmt.Errorf("error"),
 							providertypes.ErrorAPIGeneral,

@@ -4,13 +4,13 @@ go 1.25.4
 
 require (
 	github.com/cosmos/cosmos-sdk v0.50.11
-	github.com/zoguxprotocol/slinky v1.3.1
-	github.com/zoguxprotocol/slinky/tests/simapp v0.0.0-20250415201135-9aa627985eb7
 	github.com/skip-mev/petri/chain/v2 v2.0.1
 	github.com/skip-mev/petri/node/v2 v2.0.1
 	github.com/skip-mev/petri/provider/v2 v2.0.0
 	github.com/skip-mev/petri/types/v2 v2.0.1
 	github.com/stretchr/testify v1.10.0
+	github.com/zoguxprotocol/slinky v1.3.1
+	github.com/zoguxprotocol/slinky/tests/simapp v0.0.0-20250415201135-9aa627985eb7
 	go.uber.org/zap v1.27.0
 )
 
@@ -210,4 +210,9 @@ require (
 	nhooyr.io/websocket v1.8.6 // indirect
 	pgregory.net/rapid v1.1.0 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
+)
+
+replace (
+	github.com/zoguxprotocol/slinky => ../..
+	github.com/zoguxprotocol/slinky/tests/simapp => ../simapp
 )

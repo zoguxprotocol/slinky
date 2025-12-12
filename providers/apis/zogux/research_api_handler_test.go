@@ -1,4 +1,4 @@
-package dydx_test
+package zogux_test
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
-	dydxtypes "github.com/zoguxprotocol/slinky/providers/apis/dydx/types"
+	zoguxtypes "github.com/zoguxprotocol/slinky/providers/apis/zogux/types"
 	"github.com/zoguxprotocol/slinky/providers/base/testutils"
 	"github.com/zoguxprotocol/slinky/providers/websockets/binance"
 	"github.com/zoguxprotocol/slinky/providers/websockets/coinbase"
@@ -22,64 +22,64 @@ import (
 
 	"github.com/zoguxprotocol/slinky/oracle/config"
 	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
-	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
 	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestNewResearchAPIHandler(t *testing.T) {
 	t.Run("fail if the name is incorrect", func(t *testing.T) {
-		_, err := dydx.NewResearchAPIHandler(zap.NewNop(), config.APIConfig{
+		_, err := zogux.NewResearchAPIHandler(zap.NewNop(), config.APIConfig{
 			Name: "incorrect",
 		})
 		require.Error(t, err)
 	})
 
 	t.Run("fail if the api is not enabled", func(t *testing.T) {
-		_, err := dydx.NewResearchAPIHandler(zap.NewNop(), config.APIConfig{
-			Name:    dydx.ResearchAPIHandlerName,
+		_, err := zogux.NewResearchAPIHandler(zap.NewNop(), config.APIConfig{
+			Name:    zogux.ResearchAPIHandlerName,
 			Enabled: false,
 		})
 		require.Error(t, err)
 	})
 
 	t.Run("test failure of api-config validation", func(t *testing.T) {
-		cfg := dydx.DefaultResearchAPIConfig
+		cfg := zogux.DefaultResearchAPIConfig
 		cfg.Endpoints = []config.Endpoint{
 			{
 				URL: "",
 			},
 		}
 
-		_, err := dydx.NewResearchAPIHandler(zap.NewNop(), cfg)
+		_, err := zogux.NewResearchAPIHandler(zap.NewNop(), cfg)
 		require.Error(t, err)
 	})
 
 	t.Run("test failure if no endpoint is given", func(t *testing.T) {
-		cfg := dydx.DefaultResearchAPIConfig
+		cfg := zogux.DefaultResearchAPIConfig
 		cfg.Endpoints = nil
 
-		_, err := dydx.NewResearchAPIHandler(zap.NewNop(), cfg)
+		_, err := zogux.NewResearchAPIHandler(zap.NewNop(), cfg)
 		require.Error(t, err)
 	})
 
 	t.Run("test success", func(t *testing.T) {
-		_, err := dydx.NewResearchAPIHandler(zap.NewNop(), dydx.DefaultResearchAPIConfig)
+		_, err := zogux.NewResearchAPIHandler(zap.NewNop(), zogux.DefaultResearchAPIConfig)
 		require.NoError(t, err)
 	})
 }
 
 // TestCreateURL tests that:
-//   - If no chain in the given chains are dydx - fail
-//   - If one chain in the given chains is dydx - return the first endpoint configured
+//   - If no chain in the given chains are zogux - fail
+//   - If one chain in the given chains is zogux - return the first endpoint configured
 func TestCreateURLResearchHandler(t *testing.T) {
-	ah, err := dydx.NewResearchAPIHandler(
+	ah, err := zogux.NewResearchAPIHandler(
 		zap.NewNop(),
-		dydx.DefaultResearchAPIConfig,
+		zogux.DefaultResearchAPIConfig,
 	)
 	require.NoError(t, err)
 
-	t.Run("non-dydx chains", func(t *testing.T) {
+	t.Run("non-zogux chains", func(t *testing.T) {
 		chains := []types.Chain{
 			{
 				ChainID: "osmosis",
@@ -90,30 +90,30 @@ func TestCreateURLResearchHandler(t *testing.T) {
 		require.Error(t, err)
 		require.Empty(t, url)
 	})
-	t.Run("multiple chains w/ a dydx chain", func(t *testing.T) {
+	t.Run("multiple chains w/ a zogux chain", func(t *testing.T) {
 		chains := []types.Chain{
 			{
 				ChainID: "osmosis",
 			},
 			{
-				ChainID: dydx.ChainID,
+				ChainID: zogux.ChainID,
 			},
 		}
 
 		url, err := ah.CreateURL(chains)
 		require.NoError(t, err)
-		require.Equal(t, dydx.DefaultResearchAPIConfig.Endpoints[1].URL, url)
+		require.Equal(t, zogux.DefaultResearchAPIConfig.Endpoints[1].URL, url)
 	})
 }
 
 func TestParseResponseResearchAPI(t *testing.T) {
-	ah, err := dydx.NewResearchAPIHandler(
+	ah, err := zogux.NewResearchAPIHandler(
 		zap.NewNop(),
-		dydx.DefaultResearchAPIConfig,
+		zogux.DefaultResearchAPIConfig,
 	)
 	require.NoError(t, err)
 
-	t.Run("fail if none of the chains given are dydx", func(t *testing.T) {
+	t.Run("fail if none of the chains given are zogux", func(t *testing.T) {
 		chains := []types.Chain{
 			{
 				ChainID: "osmosis",
@@ -131,7 +131,7 @@ func TestParseResponseResearchAPI(t *testing.T) {
 	t.Run("failing to parse ResearchJSON response", func(t *testing.T) {
 		chains := []types.Chain{
 			{
-				ChainID: dydx.ChainID,
+				ChainID: zogux.ChainID,
 			},
 		}
 
@@ -149,7 +149,7 @@ func TestParseResponseResearchAPI(t *testing.T) {
 	t.Run("failing to convert ResearchJSON response into QueryAllMarketsParams", func(t *testing.T) {
 		chains := []types.Chain{
 			{
-				ChainID: dydx.ChainID,
+				ChainID: zogux.ChainID,
 			},
 		}
 
@@ -170,19 +170,19 @@ func TestParseResponseResearchAPI(t *testing.T) {
 	t.Run("success", func(t *testing.T) {
 		chains := []types.Chain{
 			{
-				ChainID: dydx.ChainID,
+				ChainID: zogux.ChainID,
 			},
 		}
 
-		researchJSON := dydxtypes.ResearchJSON{
+		researchJSON := zoguxtypes.ResearchJSON{
 			"1INCH": {
-				ResearchJSONMarketParam: dydxtypes.ResearchJSONMarketParam{
+				ResearchJSONMarketParam: zoguxtypes.ResearchJSONMarketParam{
 					ID:                0,
 					Pair:              "1INCH-USD",
 					Exponent:          -10.0,
 					MinPriceChangePpm: 4000,
 					MinExchanges:      3,
-					ExchangeConfigJSON: []dydxtypes.ExchangeMarketConfigJson{
+					ExchangeConfigJSON: []zoguxtypes.ExchangeMarketConfigJson{
 						{
 							ExchangeName: "Binance",
 							Ticker:       "1INCHUSDT",
@@ -272,28 +272,28 @@ func TestParseResponseResearchAPI(t *testing.T) {
 }
 
 func TestParseResponseResearchCMCAPI(t *testing.T) {
-	ah, err := dydx.NewResearchAPIHandler(
+	ah, err := zogux.NewResearchAPIHandler(
 		zap.NewNop(),
-		dydx.DefaultResearchCMCAPIConfig,
+		zogux.DefaultResearchCMCAPIConfig,
 	)
 	require.NoError(t, err)
 
 	t.Run("success", func(t *testing.T) {
 		chains := []types.Chain{
 			{
-				ChainID: dydx.ChainID,
+				ChainID: zogux.ChainID,
 			},
 		}
 
-		researchJSON := dydxtypes.ResearchJSON{
+		researchJSON := zoguxtypes.ResearchJSON{
 			"1INCH": {
-				ResearchJSONMarketParam: dydxtypes.ResearchJSONMarketParam{
+				ResearchJSONMarketParam: zoguxtypes.ResearchJSONMarketParam{
 					ID:                0,
 					Pair:              "1INCH-USD",
 					Exponent:          -10.0,
 					MinPriceChangePpm: 4000,
 					MinExchanges:      3,
-					ExchangeConfigJSON: []dydxtypes.ExchangeMarketConfigJson{
+					ExchangeConfigJSON: []zoguxtypes.ExchangeMarketConfigJson{
 						{
 							ExchangeName: "Binance",
 							Ticker:       "1INCHUSDT",
@@ -320,7 +320,7 @@ func TestParseResponseResearchCMCAPI(t *testing.T) {
 						},
 					},
 				},
-				MetaData: dydxtypes.MetaData{
+				MetaData: zoguxtypes.MetaData{
 					CMCID: 1,
 				},
 			},

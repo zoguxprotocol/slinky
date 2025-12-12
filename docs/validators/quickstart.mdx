@@ -5,7 +5,7 @@ icon: person-running-fast
 ---
 
 import QuickStartSnippet from '/snippets/quickstart.mdx';
-import QuickStartDYDXSnippet from '/snippets/dydx-quickstart.mdx';
+import QuickStartZOGUXSnippet from '/snippets/zogux-quickstart.mdx';
 
 
 <Info>
@@ -19,12 +19,12 @@ This document will guide you through setting up and running Connect, as well as 
 ### Using Curl
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/dydxprotocol/slinky/main/scripts/install.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/zoguxprotocol/slinky/main/scripts/install.sh | sudo bash
 ```
 
 ### From GitHub Releases
 
-Head over to our [GitHub Releases](https://github.com/dydxprotocol/slinky/releases) page and download the binary that matches your machine's architecture.
+Head over to our [GitHub Releases](https://github.com/zoguxprotocol/slinky/releases) page and download the binary that matches your machine's architecture.
 
 ### From Source
 
@@ -32,7 +32,7 @@ To install from source, you'll need [Git](https://git-scm.com/) and [Go](https:/
 
 Enter the commands below to install the binary.
 ```shell
-git clone git@github.com:dydxprotocol/slinky.git
+git clone git@github.com:zoguxprotocol/slinky.git
 cd slinky
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 make install
@@ -52,8 +52,8 @@ slinky version
     <Tab title="Cosmos SDK Blockchains">
         <QuickStartSnippet />
     </Tab>
-    <Tab title="dYdX Blockchain">
-        <QuickStartDYDXSnippet />
+    <Tab title="Zogux Blockchain">
+        <QuickStartZOGUXSnippet />
     </Tab>
     <Tab title="Neutron Blockchain">
         **The minimum required Connect version for the Neutron chain is `v1.0.3+`.**
@@ -78,7 +78,7 @@ The output of the command should look similar to this:
   "prices": {
     "ATOM/USD": "920650000",
     "BITCOIN/USD": "3980283250000",
-    "DYDX/USD": "273682500",
+    "ZOGUX/USD": "273682500",
     "ETHEREUM/BITCOIN": "5842000",
     "ETHEREUM/USD": "232550500000",
     "POLKADOT/USD": "638800000",

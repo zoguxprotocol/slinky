@@ -1,5 +1,5 @@
-FROM golang:1.25.4-alpine3.22
-LABEL org.opencontainers.image.source="https://github.com/dydxprotocol/slinky"
+FROM golang:1.25.1-alpine3.22
+LABEL org.opencontainers.image.source="https://github.com/zoguxprotocol/slinky"
 
 WORKDIR /src/slinky
 

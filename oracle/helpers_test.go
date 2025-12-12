@@ -14,7 +14,7 @@ import (
 	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 	"github.com/zoguxprotocol/slinky/providers/apis/binance"
 	"github.com/zoguxprotocol/slinky/providers/apis/coinbase"
-	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
 	"github.com/zoguxprotocol/slinky/providers/base"
 	"github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
 	apimetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics"
@@ -136,8 +136,8 @@ var (
 	}
 
 	mapperCfg = config.ProviderConfig{
-		Name: dydx.Name,
-		API:  dydx.DefaultAPIConfig,
+		Name: zogux.Name,
+		API:  zogux.DefaultAPIConfig,
 		Type: mmclienttypes.ConfigType,
 	}
 

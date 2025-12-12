@@ -12,7 +12,7 @@ import (
 	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis"
 	"github.com/zoguxprotocol/slinky/providers/apis/defi/raydium"
 	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
-	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
 	krakenapi "github.com/zoguxprotocol/slinky/providers/apis/kraken"
 	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
 	"github.com/zoguxprotocol/slinky/providers/apis/polymarket"
@@ -172,32 +172,32 @@ var (
 
 	AlternativeMarketMapProviders = []config.ProviderConfig{
 		{
-			Name: dydx.Name,
-			API:  dydx.DefaultAPIConfig,
+			Name: zogux.Name,
+			API:  zogux.DefaultAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.SwitchOverAPIHandlerName,
-			API:  dydx.DefaultSwitchOverAPIConfig,
+			Name: zogux.SwitchOverAPIHandlerName,
+			API:  zogux.DefaultSwitchOverAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.ResearchAPIHandlerName,
-			API:  dydx.DefaultResearchAPIConfig,
+			Name: zogux.ResearchAPIHandlerName,
+			API:  zogux.DefaultResearchAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.ResearchCMCAPIHandlerName,
-			API:  dydx.DefaultResearchCMCAPIConfig,
+			Name: zogux.ResearchCMCAPIHandlerName,
+			API:  zogux.DefaultResearchCMCAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 	}
 
 	MarketMapProviderNames = map[string]struct{}{
-		dydx.Name:                      {},
-		dydx.SwitchOverAPIHandlerName:  {},
-		dydx.ResearchAPIHandlerName:    {},
-		dydx.ResearchCMCAPIHandlerName: {},
+		zogux.Name:                      {},
+		zogux.SwitchOverAPIHandlerName:  {},
+		zogux.ResearchAPIHandlerName:    {},
+		zogux.ResearchCMCAPIHandlerName: {},
 		marketmap.Name:                 {},
 	}
 )

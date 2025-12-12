@@ -1,4 +1,4 @@
-package dydx
+package zogux
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
 	"github.com/zoguxprotocol/slinky/providers/apis/defi/raydium"
 	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
-	dydxtypes "github.com/zoguxprotocol/slinky/providers/apis/dydx/types"
+	zoguxtypes "github.com/zoguxprotocol/slinky/providers/apis/zogux/types"
 	"github.com/zoguxprotocol/slinky/providers/apis/kraken"
 	"github.com/zoguxprotocol/slinky/providers/volatile"
 	"github.com/zoguxprotocol/slinky/providers/websockets/binance"
@@ -27,9 +27,9 @@ import (
 	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
-// ProviderMapping is referencing the different providers that are supported by the dYdX market params.
+// ProviderMapping is referencing the different providers that are supported by the Zogux market params.
 //
-// ref: https://github.com/dydxprotocol/v4-chain/blob/main/protocol/daemons/pricefeed/client/constants/exchange_common/exchange_id.go
+// ref: https://github.com/zoguxprotocol/v4-chain/blob/main/protocol/daemons/pricefeed/client/constants/exchange_common/exchange_id.go
 var ProviderMapping = map[string]string{
 	"Binance":              binance.Name,
 	"BinanceUS":            binance.Name,
@@ -51,9 +51,9 @@ var ProviderMapping = map[string]string{
 	coinmarketcap.Name:     coinmarketcap.Name,
 }
 
-// ConvertMarketParamsToMarketMap converts a dYdX market params response to a slinky market map response.
+// ConvertMarketParamsToMarketMap converts a Zogux market params response to a slinky market map response.
 func ConvertMarketParamsToMarketMap(
-	params dydxtypes.QueryAllMarketParamsResponse,
+	params zoguxtypes.QueryAllMarketParamsResponse,
 ) (mmtypes.MarketMapResponse, error) {
 	marketMap := mmtypes.MarketMap{
 		Markets: make(map[string]mmtypes.Market),
@@ -65,7 +65,7 @@ func ConvertMarketParamsToMarketMap(
 			return mmtypes.MarketMapResponse{}, fmt.Errorf("failed to create ticker from market %s: %w", market.Pair, err)
 		}
 
-		var exchangeConfigJSON dydxtypes.ExchangeConfigJson
+		var exchangeConfigJSON zoguxtypes.ExchangeConfigJson
 		if err := json.Unmarshal([]byte(market.ExchangeConfigJson), &exchangeConfigJSON); err != nil {
 			return mmtypes.MarketMapResponse{}, fmt.Errorf("failed to unmarshal exchange json config for %s: %w", ticker.String(), err)
 		}
@@ -87,8 +87,8 @@ func ConvertMarketParamsToMarketMap(
 	}, nil
 }
 
-// CreateTickerFromMarket creates a ticker from a dYdX market.
-func CreateTickerFromMarket(market dydxtypes.MarketParam) (mmtypes.Ticker, error) {
+// CreateTickerFromMarket creates a ticker from a Zogux market.
+func CreateTickerFromMarket(market zoguxtypes.MarketParam) (mmtypes.Ticker, error) {
 	cp, err := CreateCurrencyPairFromPair(market.Pair)
 	if err != nil {
 		return mmtypes.Ticker{}, err
@@ -104,7 +104,7 @@ func CreateTickerFromMarket(market dydxtypes.MarketParam) (mmtypes.Ticker, error
 	return t, t.ValidateBasic()
 }
 
-// CreateCurrencyPairFromPair creates a currency pair from a dYdX market.
+// CreateCurrencyPairFromPair creates a currency pair from a Zogux market.
 func CreateCurrencyPairFromPair(pair string) (slinkytypes.CurrencyPair, error) {
 	split := strings.Split(pair, Delimiter)
 	if len(split) != 2 {
@@ -120,14 +120,14 @@ func CreateCurrencyPairFromPair(pair string) (slinkytypes.CurrencyPair, error) {
 }
 
 // ConvertExchangeConfigJSON creates a set of paths and providers for a given ticker
-// from a dYdX market. These paths represent the different ways to convert a currency
-// pair using the dYdX market.
+// from a Zogux market. These paths represent the different ways to convert a currency
+// pair using the Zogux market.
 func ConvertExchangeConfigJSON(
-	config dydxtypes.ExchangeConfigJson,
+	config zoguxtypes.ExchangeConfigJson,
 ) ([]mmtypes.ProviderConfig, error) {
 	var (
 		providers = make([]mmtypes.ProviderConfig, 0, len(config.Exchanges))
-		seen      = make(map[dydxtypes.ExchangeMarketConfigJson]struct{})
+		seen      = make(map[zoguxtypes.ExchangeMarketConfigJson]struct{})
 	)
 
 	for _, cfg := range config.Exchanges {
@@ -183,7 +183,7 @@ func ConvertExchangeConfigJSON(
 }
 
 // ExtractMetadata extracts Metadata_JSON from ExchangeMarketConfigJson, based on the converted provider name.
-func ExtractMetadata(providerName string, cfg dydxtypes.ExchangeMarketConfigJson) (string, error) {
+func ExtractMetadata(providerName string, cfg zoguxtypes.ExchangeMarketConfigJson) (string, error) {
 	// Exchange-specific logic for converting a ticker to provider-specific metadata json
 	switch {
 	case strings.HasPrefix(providerName, uniswapv3.BaseName):

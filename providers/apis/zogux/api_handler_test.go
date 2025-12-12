@@ -1,4 +1,4 @@
-package dydx_test
+package zogux_test
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
 	"github.com/zoguxprotocol/slinky/providers/base/testutils"
 	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
@@ -16,7 +16,7 @@ import (
 
 var chains = []types.Chain{
 	{
-		ChainID: "dYdX",
+		ChainID: "Zogux",
 	},
 	{
 		ChainID: "osmosis",
@@ -24,7 +24,7 @@ var chains = []types.Chain{
 }
 
 func TestCreateURL(t *testing.T) {
-	handler, err := dydx.NewAPIHandler(zap.NewNop(), dydx.DefaultAPIConfig)
+	handler, err := zogux.NewAPIHandler(zap.NewNop(), zogux.DefaultAPIConfig)
 	require.NoError(t, err)
 
 	t.Run("multiple chains", func(t *testing.T) {
@@ -35,7 +35,7 @@ func TestCreateURL(t *testing.T) {
 	t.Run("single chain", func(t *testing.T) {
 		url, err := handler.CreateURL(chains[:1])
 		require.NoError(t, err)
-		require.Equal(t, fmt.Sprintf(dydx.Endpoint, dydx.DefaultAPIConfig.Endpoints[0].URL), url)
+		require.Equal(t, fmt.Sprintf(zogux.Endpoint, zogux.DefaultAPIConfig.Endpoints[0].URL), url)
 	})
 }
 
@@ -91,7 +91,7 @@ func TestParseResponse(t *testing.T) {
 			name:   "errors when the response body cannot be converted to a market map",
 			chains: chains[:1],
 			resp: func() *http.Response {
-				return testutils.CreateResponseFromJSON(dYdXResponseInvalid)
+				return testutils.CreateResponseFromJSON(ZoguxResponseInvalid)
 			},
 			expected: types.MarketMapResponse{
 				UnResolved: types.UnResolvedMarketMap{
@@ -105,7 +105,7 @@ func TestParseResponse(t *testing.T) {
 			name:   "successful response",
 			chains: chains[:1],
 			resp: func() *http.Response {
-				return testutils.CreateResponseFromJSON(dYdXResponseValid)
+				return testutils.CreateResponseFromJSON(ZoguxResponseValid)
 			},
 			expected: types.MarketMapResponse{
 				Resolved: types.ResolvedMarketMap{
@@ -119,7 +119,7 @@ func TestParseResponse(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			handler, err := dydx.NewAPIHandler(zap.NewNop(), dydx.DefaultAPIConfig)
+			handler, err := zogux.NewAPIHandler(zap.NewNop(), zogux.DefaultAPIConfig)
 			require.NoError(t, err)
 
 			resp := handler.ParseResponse(tc.chains, tc.resp())

@@ -1,4 +1,4 @@
-package dydx_test
+package zogux_test
 
 import (
 	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
@@ -13,7 +13,7 @@ import (
 	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
-const dYdXResponseValid = `
+const ZoguxResponseValid = `
 {
 	"market_params": [
 	  {
@@ -48,7 +48,7 @@ const dYdXResponseValid = `
 }
 `
 
-const dYdXResponseInvalid = `
+const ZoguxResponseInvalid = `
 {
 	"market_params": [
 	  {

@@ -21,7 +21,7 @@ import (
 var (
 	chains = []types.Chain{
 		{
-			ChainID: "dYdX",
+			ChainID: "Zogux",
 		},
 		{
 			ChainID: "osmosis",

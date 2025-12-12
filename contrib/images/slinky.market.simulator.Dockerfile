@@ -1,5 +1,5 @@
-FROM golang:1.25.4 AS builder
-LABEL org.opencontainers.image.source="https://github.com/dydxprotocol/slinky"
+FROM golang:1.25.1 AS builder
+LABEL org.opencontainers.image.source="https://github.com/zoguxprotocol/slinky"
 
 WORKDIR /src/slinky
 ENV GOCACHE=/root/.cache/go-build

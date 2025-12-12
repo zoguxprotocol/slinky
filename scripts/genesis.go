@@ -166,7 +166,7 @@ func filterToOnlyCMCMarkets(marketmap mmtypes.MarketMap) mmtypes.MarketMap {
 
 	// Filter out all markets that are not from CoinMarketCap.
 	for _, market := range marketmap.Markets {
-		var meta tickermetadata.DyDx
+		var meta tickermetadata.Zogux
 		if err := json.Unmarshal([]byte(market.Ticker.Metadata_JSON), &meta); err != nil {
 			continue
 		}
