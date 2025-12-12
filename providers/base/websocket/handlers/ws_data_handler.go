@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // WebSocketDataHandler defines an interface that must be implemented by all providers that

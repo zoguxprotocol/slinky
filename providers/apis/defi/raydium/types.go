@@ -8,8 +8,8 @@ import (
 
 	"github.com/gagliardetto/solana-go"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
 )
 
 const (

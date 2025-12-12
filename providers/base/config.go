@@ -3,10 +3,10 @@ package base
 import (
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	apihandler "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	wshandlers "github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	apihandler "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	wshandlers "github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // UpdateOption are the options that can be used to update the provider.

@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/service/clients/oracle"
-	"github.com/dydxprotocol/slinky/service/clients/oracle/mocks"
-	"github.com/dydxprotocol/slinky/service/servers/oracle/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/service/clients/oracle"
+	"github.com/zoguxprotocol/slinky/service/clients/oracle/mocks"
+	"github.com/zoguxprotocol/slinky/service/servers/oracle/types"
 )
 
 func TestNewPriceDaemon(t *testing.T) {

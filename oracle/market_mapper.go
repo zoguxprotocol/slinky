@@ -10,7 +10,7 @@ import (
 
 	"go.uber.org/zap"
 
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // IsMarketMapValidUpdated checks if the given MarketMapResponse is an update to the existing MarketMap.

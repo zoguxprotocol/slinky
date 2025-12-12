@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	apihandlermocks "github.com/dydxprotocol/slinky/providers/base/api/handlers/mocks"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmclient "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	apihandlermocks "github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmclient "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestDYDXMultiMarketMapFetcher(t *testing.T) {

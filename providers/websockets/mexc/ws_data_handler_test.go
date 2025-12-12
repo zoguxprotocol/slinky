@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	"github.com/dydxprotocol/slinky/providers/websockets/mexc"
-	"github.com/dydxprotocol/slinky/providers/websockets/mexc/pb"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/providers/websockets/mexc"
+	"github.com/zoguxprotocol/slinky/providers/websockets/mexc/pb"
 )
 
 var (

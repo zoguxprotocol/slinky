@@ -11,14 +11,14 @@ import (
 	cometabci "github.com/cometbft/cometbft/abci/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/aggregator"
-	compression "github.com/dydxprotocol/slinky/abci/strategies/codec"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	slinkyabci "github.com/dydxprotocol/slinky/abci/types"
-	"github.com/dydxprotocol/slinky/abci/ve/types"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	servicemetrics "github.com/dydxprotocol/slinky/service/metrics"
-	servicetypes "github.com/dydxprotocol/slinky/service/servers/oracle/types"
+	"github.com/zoguxprotocol/slinky/abci/strategies/aggregator"
+	compression "github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	slinkyabci "github.com/zoguxprotocol/slinky/abci/types"
+	"github.com/zoguxprotocol/slinky/abci/ve/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	servicemetrics "github.com/zoguxprotocol/slinky/service/metrics"
+	servicetypes "github.com/zoguxprotocol/slinky/service/servers/oracle/types"
 )
 
 // VoteExtensionHandler is a handler that extends a vote with the oracle's

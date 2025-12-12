@@ -7,24 +7,24 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/dydxprotocol/slinky/providers/apis/coinmarketcap"
-	dydxtypes "github.com/dydxprotocol/slinky/providers/apis/dydx/types"
-	"github.com/dydxprotocol/slinky/providers/base/testutils"
-	"github.com/dydxprotocol/slinky/providers/websockets/binance"
-	"github.com/dydxprotocol/slinky/providers/websockets/coinbase"
-	"github.com/dydxprotocol/slinky/providers/websockets/gate"
-	"github.com/dydxprotocol/slinky/providers/websockets/kucoin"
-	"github.com/dydxprotocol/slinky/providers/websockets/mexc"
-	"github.com/dydxprotocol/slinky/providers/websockets/okx"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
+	dydxtypes "github.com/zoguxprotocol/slinky/providers/apis/dydx/types"
+	"github.com/zoguxprotocol/slinky/providers/base/testutils"
+	"github.com/zoguxprotocol/slinky/providers/websockets/binance"
+	"github.com/zoguxprotocol/slinky/providers/websockets/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/websockets/gate"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kucoin"
+	"github.com/zoguxprotocol/slinky/providers/websockets/mexc"
+	"github.com/zoguxprotocol/slinky/providers/websockets/okx"
 
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	"github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestNewResearchAPIHandler(t *testing.T) {

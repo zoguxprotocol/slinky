@@ -1,11 +1,11 @@
-module github.com/dydxprotocol/slinky/tests/petri
+module github.com/zoguxprotocol/slinky/tests/petri
 
 go 1.25.4
 
 require (
 	github.com/cosmos/cosmos-sdk v0.50.11
-	github.com/dydxprotocol/slinky v1.3.1
-	github.com/dydxprotocol/slinky/tests/simapp v0.0.0-20250415201135-9aa627985eb7
+	github.com/zoguxprotocol/slinky v1.3.1
+	github.com/zoguxprotocol/slinky/tests/simapp v0.0.0-20250415201135-9aa627985eb7
 	github.com/skip-mev/petri/chain/v2 v2.0.1
 	github.com/skip-mev/petri/node/v2 v2.0.1
 	github.com/skip-mev/petri/provider/v2 v2.0.0

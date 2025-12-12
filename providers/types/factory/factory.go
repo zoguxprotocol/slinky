@@ -3,14 +3,14 @@ package factory
 import (
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	apimetrics "github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providermetrics "github.com/dydxprotocol/slinky/providers/base/metrics"
-	wshandlers "github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
-	wsmetrics "github.com/dydxprotocol/slinky/providers/base/websocket/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	apimetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providermetrics "github.com/zoguxprotocol/slinky/providers/base/metrics"
+	wshandlers "github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
+	wsmetrics "github.com/zoguxprotocol/slinky/providers/base/websocket/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 type (

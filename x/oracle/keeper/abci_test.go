@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 func (s *KeeperTestSuite) TestBeginBlocker() {

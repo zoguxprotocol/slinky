@@ -11,9 +11,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/pkg/slices"
-	providermetrics "github.com/dydxprotocol/slinky/providers/base/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/pkg/slices"
+	providermetrics "github.com/zoguxprotocol/slinky/providers/base/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // fetch is the main blocker for the provider. It is responsible for fetching data from

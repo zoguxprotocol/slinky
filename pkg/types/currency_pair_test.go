@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/testutil"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/testutil"
 )
 
 func TestValidateBasic(t *testing.T) {

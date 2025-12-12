@@ -11,10 +11,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/pkg/math"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/pkg/math"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // APIQueryHandler is an interface that encapsulates querying a data provider for info.

@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"time"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/pkg/math"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/pkg/math"
 )
 
 // parseInstrumentMessage is used to parse an instrument message received from the Crypto.com

@@ -2,7 +2,7 @@
 
 set -e
 
-SLINKY_RELEASES_URL="https://api.github.com/repos/dydxprotocol/slinky/releases/latest"
+SLINKY_RELEASES_URL="https://api.github.com/repos/zoguxprotocol/slinky/releases/latest"
 
 # Determine the system architecture
 ARCH=$(uname -m)

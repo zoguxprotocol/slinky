@@ -11,14 +11,14 @@ import (
 	cometabci "github.com/cometbft/cometbft/abci/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	abciaggregator "github.com/dydxprotocol/slinky/abci/strategies/aggregator"
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	slinkyabcitypes "github.com/dydxprotocol/slinky/abci/types"
-	"github.com/dydxprotocol/slinky/abci/ve"
-	"github.com/dydxprotocol/slinky/aggregator"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	servicemetrics "github.com/dydxprotocol/slinky/service/metrics"
+	abciaggregator "github.com/zoguxprotocol/slinky/abci/strategies/aggregator"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	slinkyabcitypes "github.com/zoguxprotocol/slinky/abci/types"
+	"github.com/zoguxprotocol/slinky/abci/ve"
+	"github.com/zoguxprotocol/slinky/aggregator"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	servicemetrics "github.com/zoguxprotocol/slinky/service/metrics"
 )
 
 // PreBlockHandler is responsible for aggregating oracle data from each

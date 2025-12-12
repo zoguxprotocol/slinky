@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/constants"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/uniswapv3"
+	"github.com/zoguxprotocol/slinky/oracle/constants"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
 )
 
 func TestPoolConfig(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // createResponseCh creates the response channel for the provider.

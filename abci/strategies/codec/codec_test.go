@@ -7,8 +7,8 @@ import (
 
 	cmtabci "github.com/cometbft/cometbft/abci/types"
 
-	compression "github.com/dydxprotocol/slinky/abci/strategies/codec"
-	vetypes "github.com/dydxprotocol/slinky/abci/ve/types"
+	compression "github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	vetypes "github.com/zoguxprotocol/slinky/abci/ve/types"
 )
 
 func TestDefaultVoteExtensionCodec(t *testing.T) {

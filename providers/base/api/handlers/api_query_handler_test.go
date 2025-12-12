@@ -16,15 +16,15 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/base/api/errors"
-	"github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	"github.com/dydxprotocol/slinky/providers/base/api/handlers/mocks"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	mockmetrics "github.com/dydxprotocol/slinky/providers/base/api/metrics/mocks"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/base/api/errors"
+	"github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	"github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	mockmetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics/mocks"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (

@@ -12,13 +12,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/aggregator"
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
-	currencypairmocks "github.com/dydxprotocol/slinky/abci/strategies/currencypair/mocks"
-	"github.com/dydxprotocol/slinky/abci/testutils"
-	"github.com/dydxprotocol/slinky/pkg/math/voteweighted"
-	"github.com/dydxprotocol/slinky/pkg/math/voteweighted/mocks"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/abci/strategies/aggregator"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	currencypairmocks "github.com/zoguxprotocol/slinky/abci/strategies/currencypair/mocks"
+	"github.com/zoguxprotocol/slinky/abci/testutils"
+	"github.com/zoguxprotocol/slinky/pkg/math/voteweighted"
+	"github.com/zoguxprotocol/slinky/pkg/math/voteweighted/mocks"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 var (

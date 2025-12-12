@@ -34,7 +34,7 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/dydxprotocol/slinky/tests/simapp"
+	"github.com/zoguxprotocol/slinky/tests/simapp"
 )
 
 var (

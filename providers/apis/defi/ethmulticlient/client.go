@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
 
 	"github.com/ethereum/go-ethereum/rpc"
 )

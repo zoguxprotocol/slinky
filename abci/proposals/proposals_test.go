@@ -15,16 +15,16 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/dydxprotocol/slinky/abci/proposals"
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
-	codecmocks "github.com/dydxprotocol/slinky/abci/strategies/codec/mocks"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	currencypairmocks "github.com/dydxprotocol/slinky/abci/strategies/currencypair/mocks"
-	"github.com/dydxprotocol/slinky/abci/testutils"
-	"github.com/dydxprotocol/slinky/abci/types"
-	"github.com/dydxprotocol/slinky/abci/ve"
-	servicemetrics "github.com/dydxprotocol/slinky/service/metrics"
-	servicemetricsmocks "github.com/dydxprotocol/slinky/service/metrics/mocks"
+	"github.com/zoguxprotocol/slinky/abci/proposals"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	codecmocks "github.com/zoguxprotocol/slinky/abci/strategies/codec/mocks"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	currencypairmocks "github.com/zoguxprotocol/slinky/abci/strategies/currencypair/mocks"
+	"github.com/zoguxprotocol/slinky/abci/testutils"
+	"github.com/zoguxprotocol/slinky/abci/types"
+	"github.com/zoguxprotocol/slinky/abci/ve"
+	servicemetrics "github.com/zoguxprotocol/slinky/service/metrics"
+	servicemetricsmocks "github.com/zoguxprotocol/slinky/service/metrics/mocks"
 )
 
 var (

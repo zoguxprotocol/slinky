@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/dydxprotocol/slinky
+name: buf.build/zoguxprotocol/slinky
 
 deps:
   - buf.build/cosmos/cosmos-proto

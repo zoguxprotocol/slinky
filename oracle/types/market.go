@@ -3,8 +3,8 @@ package types
 import (
 	"fmt"
 
-	pkgtypes "github.com/dydxprotocol/slinky/pkg/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	pkgtypes "github.com/zoguxprotocol/slinky/pkg/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // ProviderTickersFromMarketMap returns the set of provider tickers a given provider should

@@ -4,10 +4,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	"github.com/stretchr/testify/mock"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	marketmaptypes "github.com/dydxprotocol/slinky/x/marketmap/types"
-	"github.com/dydxprotocol/slinky/x/oracle/keeper"
-	"github.com/dydxprotocol/slinky/x/oracle/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	marketmaptypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/x/oracle/keeper"
+	"github.com/zoguxprotocol/slinky/x/oracle/types"
 )
 
 func (s *KeeperTestSuite) TestGetAllCurrencyPairs() {

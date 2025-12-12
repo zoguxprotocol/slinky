@@ -31,13 +31,13 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/metadata"
 
-	compression "github.com/dydxprotocol/slinky/abci/strategies/codec"
-	slinkyabci "github.com/dydxprotocol/slinky/abci/ve/types"
-	oracleconfig "github.com/dydxprotocol/slinky/oracle/config"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/static"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
-	oracletypes "github.com/dydxprotocol/slinky/x/oracle/types"
+	compression "github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	slinkyabci "github.com/zoguxprotocol/slinky/abci/ve/types"
+	oracleconfig "github.com/zoguxprotocol/slinky/oracle/config"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/static"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
+	oracletypes "github.com/zoguxprotocol/slinky/x/oracle/types"
 )
 
 const (

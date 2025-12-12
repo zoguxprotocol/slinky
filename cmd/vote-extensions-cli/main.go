@@ -9,7 +9,7 @@ import (
 	cmthttp "github.com/cometbft/cometbft/rpc/client/http"
 	"github.com/spf13/cobra"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
 )
 
 var (

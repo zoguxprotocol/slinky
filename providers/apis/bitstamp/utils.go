@@ -3,7 +3,7 @@ package bitstamp
 import (
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 // NOTE: All documentation for this file can be located on the Bitstamp GitHub

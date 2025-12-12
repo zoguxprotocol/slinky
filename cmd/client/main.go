@@ -14,8 +14,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	slinkygrpc "github.com/dydxprotocol/slinky/pkg/grpc"
-	"github.com/dydxprotocol/slinky/service/servers/oracle/types"
+	slinkygrpc "github.com/zoguxprotocol/slinky/pkg/grpc"
+	"github.com/zoguxprotocol/slinky/service/servers/oracle/types"
 )
 
 var (

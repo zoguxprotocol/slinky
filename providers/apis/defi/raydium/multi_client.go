@@ -10,9 +10,9 @@ import (
 	"github.com/gagliardetto/solana-go/rpc"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/types"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/types"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
 )
 
 // MultiJSONRPCClient is an implementation of the SolanaJSONRPCClient interface that delegates

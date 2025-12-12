@@ -7,13 +7,13 @@ import (
 	"testing"
 	"time"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/apis/coinbase"
-	"github.com/dydxprotocol/slinky/providers/base/testutils"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/base/testutils"
 )
 
 var (

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	wshandlers "github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	wshandlers "github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
 )
 
 const (

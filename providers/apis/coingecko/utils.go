@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
 )
 
 // NOTE: All documentation for this file can be located on the CoinGecko

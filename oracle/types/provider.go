@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 type (

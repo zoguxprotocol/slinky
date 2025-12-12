@@ -8,12 +8,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/pkg/arrays"
-	"github.com/dydxprotocol/slinky/providers/apis/coinmarketcap"
-	dydxtypes "github.com/dydxprotocol/slinky/providers/apis/dydx/types"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	"github.com/dydxprotocol/slinky/service/clients/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/pkg/arrays"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
+	dydxtypes "github.com/zoguxprotocol/slinky/providers/apis/dydx/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 )
 
 var _ types.MarketMapAPIDataHandler = (*ResearchAPIHandler)(nil)

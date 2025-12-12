@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/dydxprotocol/slinky/providers/base/api/handlers"
+	"github.com/zoguxprotocol/slinky/providers/base/api/handlers"
 )
 
 var _ handlers.RequestHandler = (*MockClient)(nil)

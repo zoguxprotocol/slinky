@@ -8,9 +8,9 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/viper"
 
-	"github.com/dydxprotocol/slinky/cmd/constants"
-	"github.com/dydxprotocol/slinky/oracle/config"
-	mmtypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
+	"github.com/zoguxprotocol/slinky/cmd/constants"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	mmtypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 )
 
 const (

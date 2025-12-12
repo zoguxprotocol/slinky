@@ -1,4 +1,4 @@
-module github.com/dydxprotocol/slinky
+module github.com/zoguxprotocol/slinky
 
 go 1.25.4
 

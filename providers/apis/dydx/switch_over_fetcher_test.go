@@ -11,16 +11,16 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	"github.com/dydxprotocol/slinky/providers/apis/marketmap"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	apihandlermocks "github.com/dydxprotocol/slinky/providers/base/api/handlers/mocks"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	apimetricsmocks "github.com/dydxprotocol/slinky/providers/base/api/metrics/mocks"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmclient "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/dydx"
+	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	apihandlermocks "github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	apimetricsmocks "github.com/zoguxprotocol/slinky/providers/base/api/metrics/mocks"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmclient "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestDefaultSwitchOverProvider(t *testing.T) {

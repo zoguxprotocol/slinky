@@ -3,13 +3,13 @@ package types
 import (
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	apimetrics "github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providermetrics "github.com/dydxprotocol/slinky/providers/base/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	apimetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providermetrics "github.com/zoguxprotocol/slinky/providers/base/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // ConfigType is the type of the API/WebSocket configuration.

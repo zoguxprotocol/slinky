@@ -3,7 +3,7 @@ project_name: slinky
 
 release:
   github:
-    owner: dydxprotocol
+    owner: zoguxprotocol
     name: slinky
   prerelease: true
 
@@ -15,7 +15,7 @@ builds:
     binary: 'slinky'
     id: 'slinky'
     ldflags:
-      - "-X github.com/dydxprotocol/slinky/cmd/build.Build={{.Version}}"
+      - "-X github.com/zoguxprotocol/slinky/cmd/build.Build={{.Version}}"
 archives:
   - format: tar.gz
     wrap_in_directory: true

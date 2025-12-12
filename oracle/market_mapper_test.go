@@ -11,12 +11,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	oraclefactory "github.com/dydxprotocol/slinky/providers/factories/oracle"
-	"github.com/dydxprotocol/slinky/providers/providertest"
-	mmclienttypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	oraclefactory "github.com/zoguxprotocol/slinky/providers/factories/oracle"
+	"github.com/zoguxprotocol/slinky/providers/providertest"
+	mmclienttypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (

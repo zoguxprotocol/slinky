@@ -16,10 +16,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/dydxprotocol/slinky/cmd/build"
-	"github.com/dydxprotocol/slinky/oracle"
-	"github.com/dydxprotocol/slinky/pkg/sync"
-	"github.com/dydxprotocol/slinky/service/servers/oracle/types"
+	"github.com/zoguxprotocol/slinky/cmd/build"
+	"github.com/zoguxprotocol/slinky/oracle"
+	"github.com/zoguxprotocol/slinky/pkg/sync"
+	"github.com/zoguxprotocol/slinky/service/servers/oracle/types"
 )
 
 const DefaultServerShutdownTimeout = 3 * time.Second

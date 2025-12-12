@@ -20,10 +20,10 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/exp/maps"
 
-	marketmapmodulev1 "github.com/dydxprotocol/slinky/api/slinky/marketmap/module/v1"
-	"github.com/dydxprotocol/slinky/x/marketmap/client/cli"
-	"github.com/dydxprotocol/slinky/x/marketmap/keeper"
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	marketmapmodulev1 "github.com/zoguxprotocol/slinky/api/slinky/marketmap/module/v1"
+	"github.com/zoguxprotocol/slinky/x/marketmap/client/cli"
+	"github.com/zoguxprotocol/slinky/x/marketmap/keeper"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // ConsensusVersion is the x/marketmap module's current version, as modules integrate and updates are made, this value determines what

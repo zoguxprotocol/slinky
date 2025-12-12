@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 
-	"github.com/dydxprotocol/slinky/pkg/math"
+	"github.com/zoguxprotocol/slinky/pkg/math"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
 )
 
 var _ types.PriceAPIDataHandler = (*APIHandler)(nil)

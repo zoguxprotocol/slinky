@@ -8,7 +8,7 @@ import (
 	cometabci "github.com/cometbft/cometbft/abci/types"
 	"github.com/klauspost/compress/zstd"
 
-	vetypes "github.com/dydxprotocol/slinky/abci/ve/types"
+	vetypes "github.com/zoguxprotocol/slinky/abci/ve/types"
 )
 
 var (

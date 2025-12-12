@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // Oracle defines the expected interface for an oracle. It is consumed by the oracle server.

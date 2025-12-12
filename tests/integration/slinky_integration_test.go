@@ -13,14 +13,14 @@ import (
 	"github.com/strangelove-ventures/interchaintest/v8/ibc"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/dydxprotocol/slinky/tests/integration"
-	marketmapmodule "github.com/dydxprotocol/slinky/x/marketmap"
-	"github.com/dydxprotocol/slinky/x/oracle"
+	"github.com/zoguxprotocol/slinky/tests/integration"
+	marketmapmodule "github.com/zoguxprotocol/slinky/x/marketmap"
+	"github.com/zoguxprotocol/slinky/x/oracle"
 )
 
 var (
 	image = ibc.DockerImage{
-		Repository: "ghcr.io/dydxprotocol/slinky-sim-app",
+		Repository: "ghcr.io/zoguxprotocol/slinky-sim-app",
 		Version:    "latest",
 		UIDGID:     "1000:1000",
 	}
@@ -31,7 +31,7 @@ var (
 	gasAdjustment = 1.5
 
 	oracleImage = ibc.DockerImage{
-		Repository: "ghcr.io/dydxprotocol/slinky-e2e-sidecar",
+		Repository: "ghcr.io/zoguxprotocol/slinky-e2e-sidecar",
 		Version:    "latest",
 		UIDGID:     "1000:1000",
 	}

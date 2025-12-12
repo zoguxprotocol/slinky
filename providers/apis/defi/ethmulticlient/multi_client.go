@@ -6,14 +6,14 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/dydxprotocol/slinky/providers/apis/defi/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/types"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/rpc"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
 )
 
 // MultiRPCClient implements the EVMClient interface by calling multiple underlying EVMClients and choosing
