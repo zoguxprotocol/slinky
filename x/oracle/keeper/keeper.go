@@ -9,8 +9,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/oracle/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/oracle/types"
 )
 
 type oracleIndices struct {

@@ -5,15 +5,15 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	"github.com/dydxprotocol/slinky/providers/apis/marketmap"
-	"github.com/dydxprotocol/slinky/providers/base"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	apimetrics "github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providermetrics "github.com/dydxprotocol/slinky/providers/base/metrics"
-	"github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
+	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
+	"github.com/zoguxprotocol/slinky/providers/base"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	apimetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providermetrics "github.com/zoguxprotocol/slinky/providers/base/metrics"
+	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // MarketMapProviderFactory returns a sample implementation of the market map provider. This provider
@@ -50,25 +50,25 @@ func MarketMapProviderFactory(
 	}
 
 	switch cfg.Name {
-	case dydx.Name:
-		apiDataHandler, err = dydx.NewAPIHandler(logger, cfg.API)
-		ids = []types.Chain{{ChainID: dydx.ChainID}}
-	case dydx.SwitchOverAPIHandlerName:
-		marketMapFetcher, err = dydx.NewDefaultSwitchOverMarketMapFetcher(
+	case zogux.Name:
+		apiDataHandler, err = zogux.NewAPIHandler(logger, cfg.API)
+		ids = []types.Chain{{ChainID: zogux.ChainID}}
+	case zogux.SwitchOverAPIHandlerName:
+		marketMapFetcher, err = zogux.NewDefaultSwitchOverMarketMapFetcher(
 			logger,
 			cfg.API,
 			requestHandler,
 			apiMetrics,
 		)
-		ids = []types.Chain{{ChainID: dydx.ChainID}}
-	case dydx.ResearchAPIHandlerName, dydx.ResearchCMCAPIHandlerName:
-		marketMapFetcher, err = dydx.DefaultDYDXResearchMarketMapFetcher(
+		ids = []types.Chain{{ChainID: zogux.ChainID}}
+	case zogux.ResearchAPIHandlerName, zogux.ResearchCMCAPIHandlerName:
+		marketMapFetcher, err = zogux.DefaultZOGUXResearchMarketMapFetcher(
 			requestHandler,
 			apiMetrics,
 			cfg.API,
 			logger,
 		)
-		ids = []types.Chain{{ChainID: dydx.ChainID}}
+		ids = []types.Chain{{ChainID: zogux.ChainID}}
 	default:
 		marketMapFetcher, err = marketmap.NewMarketMapFetcher(
 			logger,

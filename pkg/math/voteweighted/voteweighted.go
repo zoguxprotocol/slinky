@@ -8,8 +8,8 @@ import (
 	"cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/dydxprotocol/slinky/aggregator"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/aggregator"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 // DefaultPowerThreshold defines the total voting power % that must be

@@ -1,35 +1,35 @@
 package constants
 
 import (
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/constants"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	binanceapi "github.com/dydxprotocol/slinky/providers/apis/binance"
-	bitstampapi "github.com/dydxprotocol/slinky/providers/apis/bitstamp"
-	coinbaseapi "github.com/dydxprotocol/slinky/providers/apis/coinbase"
-	"github.com/dydxprotocol/slinky/providers/apis/coingecko"
-	"github.com/dydxprotocol/slinky/providers/apis/coinmarketcap"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/raydium"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/uniswapv3"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	krakenapi "github.com/dydxprotocol/slinky/providers/apis/kraken"
-	"github.com/dydxprotocol/slinky/providers/apis/marketmap"
-	"github.com/dydxprotocol/slinky/providers/apis/polymarket"
-	"github.com/dydxprotocol/slinky/providers/volatile"
-	binancews "github.com/dydxprotocol/slinky/providers/websockets/binance"
-	"github.com/dydxprotocol/slinky/providers/websockets/bitfinex"
-	"github.com/dydxprotocol/slinky/providers/websockets/bitstamp"
-	"github.com/dydxprotocol/slinky/providers/websockets/bybit"
-	"github.com/dydxprotocol/slinky/providers/websockets/coinbase"
-	"github.com/dydxprotocol/slinky/providers/websockets/cryptodotcom"
-	"github.com/dydxprotocol/slinky/providers/websockets/gate"
-	"github.com/dydxprotocol/slinky/providers/websockets/huobi"
-	"github.com/dydxprotocol/slinky/providers/websockets/kraken"
-	"github.com/dydxprotocol/slinky/providers/websockets/kucoin"
-	"github.com/dydxprotocol/slinky/providers/websockets/mexc"
-	"github.com/dydxprotocol/slinky/providers/websockets/okx"
-	mmtypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/constants"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	binanceapi "github.com/zoguxprotocol/slinky/providers/apis/binance"
+	bitstampapi "github.com/zoguxprotocol/slinky/providers/apis/bitstamp"
+	coinbaseapi "github.com/zoguxprotocol/slinky/providers/apis/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/apis/coingecko"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/raydium"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
+	krakenapi "github.com/zoguxprotocol/slinky/providers/apis/kraken"
+	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
+	"github.com/zoguxprotocol/slinky/providers/apis/polymarket"
+	"github.com/zoguxprotocol/slinky/providers/volatile"
+	binancews "github.com/zoguxprotocol/slinky/providers/websockets/binance"
+	"github.com/zoguxprotocol/slinky/providers/websockets/bitfinex"
+	"github.com/zoguxprotocol/slinky/providers/websockets/bitstamp"
+	"github.com/zoguxprotocol/slinky/providers/websockets/bybit"
+	"github.com/zoguxprotocol/slinky/providers/websockets/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/websockets/cryptodotcom"
+	"github.com/zoguxprotocol/slinky/providers/websockets/gate"
+	"github.com/zoguxprotocol/slinky/providers/websockets/huobi"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kraken"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kucoin"
+	"github.com/zoguxprotocol/slinky/providers/websockets/mexc"
+	"github.com/zoguxprotocol/slinky/providers/websockets/okx"
+	mmtypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 )
 
 var (
@@ -172,32 +172,32 @@ var (
 
 	AlternativeMarketMapProviders = []config.ProviderConfig{
 		{
-			Name: dydx.Name,
-			API:  dydx.DefaultAPIConfig,
+			Name: zogux.Name,
+			API:  zogux.DefaultAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.SwitchOverAPIHandlerName,
-			API:  dydx.DefaultSwitchOverAPIConfig,
+			Name: zogux.SwitchOverAPIHandlerName,
+			API:  zogux.DefaultSwitchOverAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.ResearchAPIHandlerName,
-			API:  dydx.DefaultResearchAPIConfig,
+			Name: zogux.ResearchAPIHandlerName,
+			API:  zogux.DefaultResearchAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 		{
-			Name: dydx.ResearchCMCAPIHandlerName,
-			API:  dydx.DefaultResearchCMCAPIConfig,
+			Name: zogux.ResearchCMCAPIHandlerName,
+			API:  zogux.DefaultResearchCMCAPIConfig,
 			Type: mmtypes.ConfigType,
 		},
 	}
 
 	MarketMapProviderNames = map[string]struct{}{
-		dydx.Name:                      {},
-		dydx.SwitchOverAPIHandlerName:  {},
-		dydx.ResearchAPIHandlerName:    {},
-		dydx.ResearchCMCAPIHandlerName: {},
+		zogux.Name:                      {},
+		zogux.SwitchOverAPIHandlerName:  {},
+		zogux.ResearchAPIHandlerName:    {},
+		zogux.ResearchCMCAPIHandlerName: {},
 		marketmap.Name:                 {},
 	}
 )

@@ -9,11 +9,11 @@ import (
 	cometabci "github.com/cometbft/cometbft/abci/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	slinkyabci "github.com/dydxprotocol/slinky/abci/types"
-	"github.com/dydxprotocol/slinky/abci/ve"
-	servicemetrics "github.com/dydxprotocol/slinky/service/metrics"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	slinkyabci "github.com/zoguxprotocol/slinky/abci/types"
+	"github.com/zoguxprotocol/slinky/abci/ve"
+	servicemetrics "github.com/zoguxprotocol/slinky/service/metrics"
 )
 
 // ProposalHandler is responsible primarily for:

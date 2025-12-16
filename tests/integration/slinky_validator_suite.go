@@ -6,12 +6,12 @@ import (
 
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	oracleconfig "github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/static"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
-	oracletypes "github.com/dydxprotocol/slinky/x/oracle/types"
+	oracleconfig "github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/static"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
+	oracletypes "github.com/zoguxprotocol/slinky/x/oracle/types"
 )
 
 type SlinkyOracleValidatorIntegrationSuite struct {

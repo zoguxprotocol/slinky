@@ -6,14 +6,14 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/metrics"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/pkg/math/oracle"
-	pkgtypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/binance"
-	"github.com/dydxprotocol/slinky/providers/apis/coinbase"
-	"github.com/dydxprotocol/slinky/providers/websockets/kucoin"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/pkg/math/oracle"
+	pkgtypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/binance"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kucoin"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (

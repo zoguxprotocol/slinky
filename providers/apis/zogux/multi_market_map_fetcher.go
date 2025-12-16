@@ -1,4 +1,4 @@
-package dydx
+package zogux
 
 import (
 	"context"
@@ -7,26 +7,26 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/cmd/constants/marketmaps"
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/coinmarketcap"
-	apihandlers "github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmclient "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/cmd/constants/marketmaps"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
+	apihandlers "github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmclient "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (
 	_         mmclient.MarketMapFetcher = &MultiMarketMapRestAPIFetcher{}
-	DYDXChain                           = mmclient.Chain{
+	ZOGUXChain                           = mmclient.Chain{
 		ChainID: ChainID,
 	}
 )
 
-// NewDYDXResearchMarketMapFetcher returns a MultiMarketMapFetcher composed of dydx mainnet + research
+// NewZOGUXResearchMarketMapFetcher returns a MultiMarketMapFetcher composed of zogux mainnet + research
 // apiDataHandlers.
-func DefaultDYDXResearchMarketMapFetcher(
+func DefaultZOGUXResearchMarketMapFetcher(
 	rh apihandlers.RequestHandler,
 	metrics metrics.APIMetrics,
 	api config.APIConfig,
@@ -56,7 +56,7 @@ func DefaultDYDXResearchMarketMapFetcher(
 		return nil, fmt.Errorf("logger is nil")
 	}
 
-	// make a dydx research api-handler
+	// make a zogux research api-handler
 	researchAPIDataHandler, err := NewResearchAPIHandler(logger, api)
 	if err != nil {
 		return nil, err
@@ -89,7 +89,7 @@ func DefaultDYDXResearchMarketMapFetcher(
 		return nil, err
 	}
 
-	return NewDYDXResearchMarketMapFetcher(
+	return NewZOGUXResearchMarketMapFetcher(
 		mainnetFetcher,
 		researchFetcher,
 		logger,
@@ -98,14 +98,14 @@ func DefaultDYDXResearchMarketMapFetcher(
 }
 
 // MultiMarketMapRestAPIFetcher is an implementation of a RestAPIFetcher that wraps
-// two underlying Fetchers for fetching the market-map according to dydx mainnet and
-// the additional markets that can be added according to the dydx research json.
+// two underlying Fetchers for fetching the market-map according to zogux mainnet and
+// the additional markets that can be added according to the zogux research json.
 type MultiMarketMapRestAPIFetcher struct {
-	// dydx mainnet fetcher is the api-fetcher for the dydx mainnet market-map
-	dydxMainnetFetcher mmclient.MarketMapFetcher
+	// zogux mainnet fetcher is the api-fetcher for the zogux mainnet market-map
+	zoguxMainnetFetcher mmclient.MarketMapFetcher
 
-	// dydx research fetcher is the api-fetcher for the dydx research market-map
-	dydxResearchFetcher mmclient.MarketMapFetcher
+	// zogux research fetcher is the api-fetcher for the zogux research market-map
+	zoguxResearchFetcher mmclient.MarketMapFetcher
 
 	// logger is the logger for the fetcher
 	logger *zap.Logger
@@ -114,16 +114,16 @@ type MultiMarketMapRestAPIFetcher struct {
 	isCMCOnly bool
 }
 
-// NewDYDXResearchMarketMapFetcher returns an aggregated market-map among the dydx mainnet and the dydx research json.
-func NewDYDXResearchMarketMapFetcher(
+// NewZOGUXResearchMarketMapFetcher returns an aggregated market-map among the zogux mainnet and the zogux research json.
+func NewZOGUXResearchMarketMapFetcher(
 	mainnetFetcher, researchFetcher mmclient.MarketMapFetcher,
 	logger *zap.Logger,
 	isCMCOnly bool,
 ) *MultiMarketMapRestAPIFetcher {
 	return &MultiMarketMapRestAPIFetcher{
-		dydxMainnetFetcher:  mainnetFetcher,
-		dydxResearchFetcher: researchFetcher,
-		logger:              logger.With(zap.String("module", "dydx-research-market-map-fetcher")),
+		zoguxMainnetFetcher:  mainnetFetcher,
+		zoguxResearchFetcher: researchFetcher,
+		logger:              logger.With(zap.String("module", "zogux-research-market-map-fetcher")),
 		isCMCOnly:           isCMCOnly,
 	}
 }
@@ -134,63 +134,63 @@ func NewDYDXResearchMarketMapFetcher(
 func (f *MultiMarketMapRestAPIFetcher) Fetch(ctx context.Context, chains []mmclient.Chain) mmclient.MarketMapResponse {
 	// call the underlying fetchers + await their responses
 	// channel to aggregate responses
-	dydxMainnetResponseChan := make(chan mmclient.MarketMapResponse, 1) // buffer so that sends / receives are non-blocking
-	dydxResearchResponseChan := make(chan mmclient.MarketMapResponse, 1)
+	zoguxMainnetResponseChan := make(chan mmclient.MarketMapResponse, 1) // buffer so that sends / receives are non-blocking
+	zoguxResearchResponseChan := make(chan mmclient.MarketMapResponse, 1)
 
 	var wg sync.WaitGroup
 	wg.Add(2)
 
-	// fetch dydx mainnet
+	// fetch zogux mainnet
 	go func() {
 		defer wg.Done()
-		dydxMainnetResponseChan <- f.dydxMainnetFetcher.Fetch(ctx, chains)
-		f.logger.Debug("fetched valid market-map from dydx mainnet")
+		zoguxMainnetResponseChan <- f.zoguxMainnetFetcher.Fetch(ctx, chains)
+		f.logger.Debug("fetched valid market-map from zogux mainnet")
 	}()
 
-	// fetch dydx research
+	// fetch zogux research
 	go func() {
 		defer wg.Done()
-		dydxResearchResponseChan <- f.dydxResearchFetcher.Fetch(ctx, chains)
-		f.logger.Debug("fetched valid market-map from dydx research")
+		zoguxResearchResponseChan <- f.zoguxResearchFetcher.Fetch(ctx, chains)
+		f.logger.Debug("fetched valid market-map from zogux research")
 	}()
 
 	// wait for both fetchers to finish
 	wg.Wait()
 
-	dydxMainnetMarketMapResponse := <-dydxMainnetResponseChan
-	dydxResearchMarketMapResponse := <-dydxResearchResponseChan
+	zoguxMainnetMarketMapResponse := <-zoguxMainnetResponseChan
+	zoguxResearchMarketMapResponse := <-zoguxResearchResponseChan
 
-	// if the dydx mainnet market-map response failed, return the dydx mainnet failed response
-	if _, ok := dydxMainnetMarketMapResponse.UnResolved[DYDXChain]; ok {
-		f.logger.Error("dydx mainnet market-map fetch failed", zap.Any("response", dydxMainnetMarketMapResponse))
-		return dydxMainnetMarketMapResponse
+	// if the zogux mainnet market-map response failed, return the zogux mainnet failed response
+	if _, ok := zoguxMainnetMarketMapResponse.UnResolved[ZOGUXChain]; ok {
+		f.logger.Error("zogux mainnet market-map fetch failed", zap.Any("response", zoguxMainnetMarketMapResponse))
+		return zoguxMainnetMarketMapResponse
 	}
 
-	// if the dydx research market-map response failed, return the dydx research failed response
-	if _, ok := dydxResearchMarketMapResponse.UnResolved[DYDXChain]; ok {
-		f.logger.Error("dydx research market-map fetch failed", zap.Any("response", dydxResearchMarketMapResponse))
-		return dydxResearchMarketMapResponse
+	// if the zogux research market-map response failed, return the zogux research failed response
+	if _, ok := zoguxResearchMarketMapResponse.UnResolved[ZOGUXChain]; ok {
+		f.logger.Error("zogux research market-map fetch failed", zap.Any("response", zoguxResearchMarketMapResponse))
+		return zoguxResearchMarketMapResponse
 	}
 
-	// otherwise, add all markets from dydx research
-	dydxMainnetMarketMap := dydxMainnetMarketMapResponse.Resolved[DYDXChain].Value.MarketMap
+	// otherwise, add all markets from zogux research
+	zoguxMainnetMarketMap := zoguxMainnetMarketMapResponse.Resolved[ZOGUXChain].Value.MarketMap
 
-	resolved, ok := dydxResearchMarketMapResponse.Resolved[DYDXChain]
+	resolved, ok := zoguxResearchMarketMapResponse.Resolved[ZOGUXChain]
 	if ok {
 		for ticker, market := range resolved.Value.MarketMap.Markets {
-			// if the market is not already in the dydx mainnet market-map, add it
-			if _, ok := dydxMainnetMarketMap.Markets[ticker]; !ok {
-				f.logger.Debug("adding market from dydx research", zap.String("ticker", ticker))
-				dydxMainnetMarketMap.Markets[ticker] = market
+			// if the market is not already in the zogux mainnet market-map, add it
+			if _, ok := zoguxMainnetMarketMap.Markets[ticker]; !ok {
+				f.logger.Debug("adding market from zogux research", zap.String("ticker", ticker))
+				zoguxMainnetMarketMap.Markets[ticker] = market
 			}
 		}
 	}
 
 	// if the fetcher is only for CoinMarketCap markets, filter out all non-CMC markets
 	if f.isCMCOnly {
-		for ticker, market := range dydxMainnetMarketMap.Markets {
+		for ticker, market := range zoguxMainnetMarketMap.Markets {
 			market.Ticker.MinProviderCount = 1
-			dydxMainnetMarketMap.Markets[ticker] = market
+			zoguxMainnetMarketMap.Markets[ticker] = market
 
 			var (
 				seenCMC     = false
@@ -207,7 +207,7 @@ func (f *MultiMarketMapRestAPIFetcher) Fetch(ctx context.Context, chains []mmcli
 			// if we saw a CMC provider, add it to the market
 			if seenCMC {
 				market.ProviderConfigs = []mmtypes.ProviderConfig{cmcProvider}
-				dydxMainnetMarketMap.Markets[ticker] = market
+				zoguxMainnetMarketMap.Markets[ticker] = market
 				continue
 			}
 
@@ -215,18 +215,18 @@ func (f *MultiMarketMapRestAPIFetcher) Fetch(ctx context.Context, chains []mmcli
 			cmcMarket, ok := marketmaps.CoinMarketCapMarketMap.Markets[ticker]
 			if !ok {
 				f.logger.Info("did not find CMC market for ticker", zap.String("ticker", ticker))
-				delete(dydxMainnetMarketMap.Markets, ticker)
+				delete(zoguxMainnetMarketMap.Markets, ticker)
 				continue
 			}
 
 			// add the CMC provider to the market
 			market.ProviderConfigs = cmcMarket.ProviderConfigs
-			dydxMainnetMarketMap.Markets[ticker] = market
+			zoguxMainnetMarketMap.Markets[ticker] = market
 		}
 	}
 
 	// validate the combined market-map
-	if err := dydxMainnetMarketMap.ValidateBasic(); err != nil {
+	if err := zoguxMainnetMarketMap.ValidateBasic(); err != nil {
 		f.logger.Error("combined market-map failed validation", zap.Error(err))
 
 		return mmclient.NewMarketMapResponseWithErr(
@@ -238,7 +238,7 @@ func (f *MultiMarketMapRestAPIFetcher) Fetch(ctx context.Context, chains []mmcli
 		)
 	}
 
-	dydxMainnetMarketMapResponse.Resolved[DYDXChain].Value.MarketMap = dydxMainnetMarketMap
+	zoguxMainnetMarketMapResponse.Resolved[ZOGUXChain].Value.MarketMap = zoguxMainnetMarketMap
 
-	return dydxMainnetMarketMapResponse
+	return zoguxMainnetMarketMapResponse
 }

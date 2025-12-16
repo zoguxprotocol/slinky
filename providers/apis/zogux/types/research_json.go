@@ -24,8 +24,8 @@ type ResearchJSONMarketParam struct {
 	ExchangeConfigJSON []ExchangeMarketConfigJson `json:"exchangeConfigJson"`
 }
 
-// ResearchJSON is the go-struct that encompasses the dydx research json, as hosted
-// on [github](https://raw.githubusercontent.com/dydxprotocol/v4-web/main/public/configs/otherMarketData.json)
+// ResearchJSON is the go-struct that encompasses the zogux research json, as hosted
+// on [github](https://raw.githubusercontent.com/zoguxprotocol/v4-web/main/public/configs/otherMarketData.json)
 type ResearchJSON map[string]Params
 
 type Params struct {

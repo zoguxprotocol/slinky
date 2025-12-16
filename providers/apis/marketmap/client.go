@@ -8,10 +8,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	slinkygrpc "github.com/dydxprotocol/slinky/pkg/grpc"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	slinkygrpc "github.com/zoguxprotocol/slinky/pkg/grpc"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // MarketMapClient is a wrapper around the x/marketmap QueryClient.

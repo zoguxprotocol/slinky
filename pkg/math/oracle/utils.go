@@ -5,9 +5,9 @@ import (
 	"maps"
 	"math/big"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	pkgtypes "github.com/dydxprotocol/slinky/pkg/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	pkgtypes "github.com/zoguxprotocol/slinky/pkg/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // GetProviderPrice returns the relevant provider price. Note that the aggregator's

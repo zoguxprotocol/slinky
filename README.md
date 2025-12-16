@@ -1,10 +1,10 @@
 # slinky
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#wip)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue?style=flat-square&logo=go)](https://godoc.org/github.com/dydxprotocol/slinky)
-[![Go Report Card](https://goreportcard.com/badge/github.com/dydxprotocol/slinky?style=flat-square)](https://goreportcard.com/report/github.com/dydxprotocol/slinky)
-[![Version](https://img.shields.io/github/tag/dydxprotocol/slinky.svg?style=flat-square)](https://github.com/dydxprotocol/slinky/releases/latest)
-[![Lines Of Code](https://img.shields.io/tokei/lines/github/dydxprotocol/slinky?style=flat-square)](https://github.com/dydxprotocol/slinky)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue?style=flat-square&logo=go)](https://godoc.org/github.com/zoguxprotocol/slinky)
+[![Go Report Card](https://goreportcard.com/badge/github.com/zoguxprotocol/slinky?style=flat-square)](https://goreportcard.com/report/github.com/zoguxprotocol/slinky)
+[![Version](https://img.shields.io/github/tag/zoguxprotocol/slinky.svg?style=flat-square)](https://github.com/zoguxprotocol/slinky/releases/latest)
+[![Lines Of Code](https://img.shields.io/tokei/lines/github/zoguxprotocol/slinky?style=flat-square)](https://github.com/zoguxprotocol/slinky)
 
 ## Overview
 
@@ -19,7 +19,7 @@ The slinky repository is composed of the following core packages:
 ## Installation
 
 ```bash
-git clone https://github.com/dydxprotocol/slinky.git
+git clone https://github.com/zoguxprotocol/slinky.git
 cd slinky/cmd/slinky
 go install .
 ```
@@ -86,10 +86,10 @@ We have an extensive suite of metrics available to validators and chain operator
 
 ---
 
-## dYdX Fork
+## Zogux Fork
 
 ### Slinky vs. Connect Rename
 
 * Skip renamed their repo (and code refs) from Slinky --> Connect for branding purposes.
 * Unfortunately it is impossible to update V4 protocol to use the renamed version, as message names etc. were changed. This would cause downtime during the interval when validators have updated `v4-chain` to use the rename but have not yet updated sidecar (or vice-versa).
-* As a result, the dYdX fork of `skip-mev/connect` has chosen to roll back to the pre-rename state, `slinky`, as the base for future development (along with backporting any essential post-rename changes to functionality).
+* As a result, the Zogux fork of `skip-mev/connect` has chosen to roll back to the pre-rename state, `slinky`, as the base for future development (along with backporting any essential post-rename changes to functionality).

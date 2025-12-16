@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis"
 )
 
 func TestCreateURL(t *testing.T) {

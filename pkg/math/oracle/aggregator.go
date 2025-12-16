@@ -7,11 +7,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle"
-	oraclemetrics "github.com/dydxprotocol/slinky/oracle/metrics"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/pkg/math"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle"
+	oraclemetrics "github.com/zoguxprotocol/slinky/oracle/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/pkg/math"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var _ oracle.PriceAggregator = &IndexPriceAggregator{}

@@ -2,7 +2,7 @@ version: v2
 
 modules:
   - path: vendors/mexc/websocket-proto
-    name: buf.build/dydxprotocol/vendors-mexc-proto
+    name: buf.build/zoguxprotocol/vendors-mexc-proto
     lint:
       except:
         - FILE_LOWER_SNAKE_CASE

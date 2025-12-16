@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/pkg/math"
+	"github.com/zoguxprotocol/slinky/pkg/math"
 )
 
 func TestMin(t *testing.T) {

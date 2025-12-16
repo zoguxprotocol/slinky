@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/cmd/constants/marketmaps"
-	marketmaptypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/cmd/constants/marketmaps"
+	marketmaptypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestMarkets(t *testing.T) {

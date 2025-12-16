@@ -8,12 +8,12 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	cmdconfig "github.com/dydxprotocol/slinky/cmd/slinky/config"
-	oracleconfig "github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/raydium"
-	"github.com/dydxprotocol/slinky/providers/apis/marketmap"
-	"github.com/dydxprotocol/slinky/providers/websockets/coinbase"
-	mmtypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
+	cmdconfig "github.com/zoguxprotocol/slinky/cmd/slinky/config"
+	oracleconfig "github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/raydium"
+	"github.com/zoguxprotocol/slinky/providers/apis/marketmap"
+	"github.com/zoguxprotocol/slinky/providers/websockets/coinbase"
+	mmtypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 )
 
 func TestValidateBasic(t *testing.T) {

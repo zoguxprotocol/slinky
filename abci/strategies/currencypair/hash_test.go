@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	strategies "github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair/mocks"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	strategies "github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair/mocks"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 func TestHashCurrencyPairStrategyID(t *testing.T) {

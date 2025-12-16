@@ -5,8 +5,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // GetQueryCmd returns the parent command for all x/marketmap cli query commands.

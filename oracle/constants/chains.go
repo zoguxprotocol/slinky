@@ -1,7 +1,7 @@
 package constants
 
 const (
-	DYDX     = "dydx"
+	ZOGUX     = "zogux"
 	ETHEREUM = "ethereum"
 	BASE     = "base"
 )

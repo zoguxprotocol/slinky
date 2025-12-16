@@ -3,11 +3,11 @@ package oracle_test
 import (
 	"go.uber.org/zap"
 
-	pkgtypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/binance"
-	"github.com/dydxprotocol/slinky/providers/apis/coinbase"
-	"github.com/dydxprotocol/slinky/providers/websockets/kucoin"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	pkgtypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/binance"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kucoin"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (

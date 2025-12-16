@@ -6,8 +6,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/dydxprotocol/slinky/cmd/build"
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/cmd/build"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 const (

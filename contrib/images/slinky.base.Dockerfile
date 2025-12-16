@@ -1,5 +1,5 @@
-FROM golang:1.25.4-trixie
-LABEL org.opencontainers.image.source="https://github.com/dydxprotocol/slinky"
+FROM golang:1.25.1-trixie
+LABEL org.opencontainers.image.source="https://github.com/zoguxprotocol/slinky"
 
 WORKDIR /src/slinky
 

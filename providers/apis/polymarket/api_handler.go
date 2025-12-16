@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 const (

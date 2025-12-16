@@ -973,7 +973,7 @@
             {
               "targetBlank": true,
               "title": "Provider drilldown",
-              "url": "https://skipprotocol.grafana.net/d/fdl46t0q7u7eod/slinky-sidecar-provider-status?${DS_PROMETHEUS:queryparam}&var-job=All&var-id=All&var-provider=${__field.labels.provider}&var-market_map_provider=dydx_api&orgId=1"
+              "url": "https://skipprotocol.grafana.net/d/fdl46t0q7u7eod/slinky-sidecar-provider-status?${DS_PROMETHEUS:queryparam}&var-job=All&var-id=All&var-provider=${__field.labels.provider}&var-market_map_provider=zogux_api&orgId=1"
             }
           ],
           "mappings": [],
@@ -2628,10 +2628,10 @@
         "current": {
           "selected": false,
           "text": [
-            "slinky-customer-dydx-vpn-staging-sidecar-0"
+            "slinky-customer-zogux-vpn-staging-sidecar-0"
           ],
           "value": [
-            "slinky-customer-dydx-vpn-staging-sidecar-0"
+            "slinky-customer-zogux-vpn-staging-sidecar-0"
           ]
         },
         "datasource": {
@@ -2749,7 +2749,7 @@
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
-        "regex": "(dydx_api|marketmap_api|dydx_research_json_api)",
+        "regex": "(zogux_api|marketmap_api|zogux_research_json_api)",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"

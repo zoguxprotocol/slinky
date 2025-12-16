@@ -8,11 +8,11 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	mocks "github.com/dydxprotocol/slinky/abci/strategies/currencypair/mocks"
-	"github.com/dydxprotocol/slinky/abci/testutils"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	oracletypes "github.com/dydxprotocol/slinky/x/oracle/types"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	mocks "github.com/zoguxprotocol/slinky/abci/strategies/currencypair/mocks"
+	"github.com/zoguxprotocol/slinky/abci/testutils"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	oracletypes "github.com/zoguxprotocol/slinky/x/oracle/types"
 )
 
 func TestDeltaCurrencyPairStrategyGetEncodedPrice(t *testing.T) {

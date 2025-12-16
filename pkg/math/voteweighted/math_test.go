@@ -15,11 +15,11 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/dydxprotocol/slinky/abci/testutils"
-	"github.com/dydxprotocol/slinky/aggregator"
-	"github.com/dydxprotocol/slinky/pkg/math/voteweighted"
-	"github.com/dydxprotocol/slinky/pkg/math/voteweighted/mocks"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/abci/testutils"
+	"github.com/zoguxprotocol/slinky/aggregator"
+	"github.com/zoguxprotocol/slinky/pkg/math/voteweighted"
+	"github.com/zoguxprotocol/slinky/pkg/math/voteweighted/mocks"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 type MathTestSuite struct {

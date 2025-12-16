@@ -14,10 +14,10 @@ import (
 	"github.com/skip-mev/petri/provider/v2/docker"
 	"github.com/skip-mev/petri/types/v2"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	oracletypes "github.com/dydxprotocol/slinky/x/oracle/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	oracletypes "github.com/zoguxprotocol/slinky/x/oracle/types"
 
-	"github.com/dydxprotocol/slinky/tests/simapp"
+	"github.com/zoguxprotocol/slinky/tests/simapp"
 )
 
 func GetChainConfig() types.ChainConfig {
@@ -28,12 +28,12 @@ func GetChainConfig() types.ChainConfig {
 		NumNodes:      2,
 		BinaryName:    "slinkyd",
 		Image: provider.ImageDefinition{
-			Image: "ghcr.io/dydxprotocol/slinky-sim-app",
+			Image: "ghcr.io/zoguxprotocol/slinky-sim-app",
 			UID:   "1000",
 			GID:   "1000",
 		},
 		SidecarImage: provider.ImageDefinition{
-			Image: "ghcr.io/dydxprotocol/slinky-e2e-sidecar",
+			Image: "ghcr.io/zoguxprotocol/slinky-e2e-sidecar",
 			UID:   "1000",
 			GID:   "1000",
 		},

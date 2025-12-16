@@ -3,10 +3,10 @@ package oracle
 import (
 	"go.uber.org/zap"
 
-	oraclemetrics "github.com/dydxprotocol/slinky/oracle/metrics"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	mmclienttypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	oraclemetrics "github.com/zoguxprotocol/slinky/oracle/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	mmclienttypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // Option is a functional option for the market map state.

@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/ethmulticlient"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/ethmulticlient/mocks"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/uniswapv3"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/ethmulticlient"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/ethmulticlient/mocks"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
 )
 
 var (

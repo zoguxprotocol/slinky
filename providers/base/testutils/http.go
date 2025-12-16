@@ -12,11 +12,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base"
-	"github.com/dydxprotocol/slinky/providers/base/api/handlers"
-	handlermocks "github.com/dydxprotocol/slinky/providers/base/api/handlers/mocks"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base"
+	"github.com/zoguxprotocol/slinky/providers/base/api/handlers"
+	handlermocks "github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // CreateResponseFromJSON creates a http response from a json string.

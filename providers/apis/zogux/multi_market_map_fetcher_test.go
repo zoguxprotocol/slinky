@@ -1,4 +1,4 @@
-package dydx_test
+package zogux_test
 
 import (
 	"context"
@@ -9,57 +9,57 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/dydx"
-	apihandlermocks "github.com/dydxprotocol/slinky/providers/base/api/handlers/mocks"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	mmclient "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/zogux"
+	apihandlermocks "github.com/zoguxprotocol/slinky/providers/base/api/handlers/mocks"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	mmclient "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
-func TestDYDXMultiMarketMapFetcher(t *testing.T) {
-	dydxMainnetMMFetcher := apihandlermocks.NewAPIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse](t)
-	dydxResearchMMFetcher := apihandlermocks.NewAPIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse](t)
+func TestZOGUXMultiMarketMapFetcher(t *testing.T) {
+	zoguxMainnetMMFetcher := apihandlermocks.NewAPIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse](t)
+	zoguxResearchMMFetcher := apihandlermocks.NewAPIFetcher[mmclient.Chain, *mmtypes.MarketMapResponse](t)
 
-	fetcher := dydx.NewDYDXResearchMarketMapFetcher(dydxMainnetMMFetcher, dydxResearchMMFetcher, zap.NewExample(), false)
+	fetcher := zogux.NewZOGUXResearchMarketMapFetcher(zoguxMainnetMMFetcher, zoguxResearchMMFetcher, zap.NewExample(), false)
 
 	t.Run("test that if the mainnet api-price fetcher response is unresolved, we return it", func(t *testing.T) {
 		ctx := context.Background()
-		dydxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			UnResolved: map[mmclient.Chain]providertypes.UnresolvedResult{
-				dydx.DYDXChain: {
+				zogux.ZOGUXChain: {
 					ErrorWithCode: providertypes.NewErrorWithCode(fmt.Errorf("error"), providertypes.ErrorAPIGeneral),
 				},
 			},
 		}, nil).Once()
-		dydxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{}, nil).Once()
+		zoguxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{}, nil).Once()
 
-		response := fetcher.Fetch(ctx, []mmclient.Chain{dydx.DYDXChain})
+		response := fetcher.Fetch(ctx, []mmclient.Chain{zogux.ZOGUXChain})
 		require.Len(t, response.UnResolved, 1)
 	})
 
-	t.Run("test that if the dydx-research response is unresolved, we return that", func(t *testing.T) {
+	t.Run("test that if the zogux-research response is unresolved, we return that", func(t *testing.T) {
 		ctx := context.Background()
-		dydxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			Resolved: map[mmclient.Chain]providertypes.ResolvedResult[*mmtypes.MarketMapResponse]{
-				dydx.DYDXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{}, time.Now()),
+				zogux.ZOGUXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{}, time.Now()),
 			},
 		}, nil).Once()
-		dydxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			UnResolved: map[mmclient.Chain]providertypes.UnresolvedResult{
-				dydx.DYDXChain: {},
+				zogux.ZOGUXChain: {},
 			},
 		}, nil).Once()
 
-		response := fetcher.Fetch(ctx, []mmclient.Chain{dydx.DYDXChain})
+		response := fetcher.Fetch(ctx, []mmclient.Chain{zogux.ZOGUXChain})
 		require.Len(t, response.UnResolved, 1)
 	})
 
 	t.Run("test if both responses are resolved, the tickers are appended to each other + validation fails", func(t *testing.T) {
 		ctx := context.Background()
-		dydxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			Resolved: map[mmclient.Chain]providertypes.ResolvedResult[*mmtypes.MarketMapResponse]{
-				dydx.DYDXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
+				zogux.ZOGUXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
 					MarketMap: mmtypes.MarketMap{
 						Markets: map[string]mmtypes.Market{
 							"BTC/USD": {},
@@ -68,9 +68,9 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 				}, time.Now()),
 			},
 		}, nil).Once()
-		dydxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			Resolved: map[mmclient.Chain]providertypes.ResolvedResult[*mmtypes.MarketMapResponse]{
-				dydx.DYDXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
+				zogux.ZOGUXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
 					MarketMap: mmtypes.MarketMap{
 						Markets: map[string]mmtypes.Market{
 							"ETH/USD": {},
@@ -80,15 +80,15 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 			},
 		}, nil).Once()
 
-		response := fetcher.Fetch(ctx, []mmclient.Chain{dydx.DYDXChain})
+		response := fetcher.Fetch(ctx, []mmclient.Chain{zogux.ZOGUXChain})
 		require.Len(t, response.UnResolved, 1)
 	})
 
 	t.Run("test that if both responses are resolved, the responses are aggregated + validation passes", func(t *testing.T) {
 		ctx := context.Background()
-		dydxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxMainnetMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			Resolved: map[mmclient.Chain]providertypes.ResolvedResult[*mmtypes.MarketMapResponse]{
-				dydx.DYDXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
+				zogux.ZOGUXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
 					MarketMap: mmtypes.MarketMap{
 						Markets: map[string]mmtypes.Market{
 							"BTC/USD": {
@@ -100,7 +100,7 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 								},
 								ProviderConfigs: []mmtypes.ProviderConfig{
 									{
-										Name:           "dydx",
+										Name:           "zogux",
 										OffChainTicker: "BTC/USD",
 									},
 								},
@@ -110,9 +110,9 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 				}, time.Now()),
 			},
 		}, nil).Once()
-		dydxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{dydx.DYDXChain}).Return(mmclient.MarketMapResponse{
+		zoguxResearchMMFetcher.On("Fetch", ctx, []mmclient.Chain{zogux.ZOGUXChain}).Return(mmclient.MarketMapResponse{
 			Resolved: map[mmclient.Chain]providertypes.ResolvedResult[*mmtypes.MarketMapResponse]{
-				dydx.DYDXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
+				zogux.ZOGUXChain: providertypes.NewResult(&mmtypes.MarketMapResponse{
 					MarketMap: mmtypes.MarketMap{
 						Markets: map[string]mmtypes.Market{
 							"ETH/USD": {
@@ -123,7 +123,7 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 								},
 								ProviderConfigs: []mmtypes.ProviderConfig{
 									{
-										Name:           "dydx",
+										Name:           "zogux",
 										OffChainTicker: "BTC/USD",
 									},
 								},
@@ -134,10 +134,10 @@ func TestDYDXMultiMarketMapFetcher(t *testing.T) {
 			},
 		}, nil).Once()
 
-		response := fetcher.Fetch(ctx, []mmclient.Chain{dydx.DYDXChain})
+		response := fetcher.Fetch(ctx, []mmclient.Chain{zogux.ZOGUXChain})
 		require.Len(t, response.Resolved, 1)
 
-		marketMap := response.Resolved[dydx.DYDXChain].Value.MarketMap
+		marketMap := response.Resolved[zogux.ZOGUXChain].Value.MarketMap
 
 		require.Len(t, marketMap.Markets, 2)
 		require.Contains(t, marketMap.Markets, "BTC/USD")

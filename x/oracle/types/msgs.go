@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
 )
 
 var (

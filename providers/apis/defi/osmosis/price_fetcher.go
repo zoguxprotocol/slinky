@@ -10,11 +10,11 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	oracletypes "github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/pkg/math"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	oracletypes "github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/pkg/math"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 var _ oracletypes.PriceAPIFetcher = &APIPriceFetcher{}

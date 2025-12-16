@@ -12,7 +12,7 @@ import (
 	"google.golang.org/grpc/reflection"
 	reflectionpb "google.golang.org/grpc/reflection/grpc_reflection_v1alpha"
 
-	slinkygrpc "github.com/dydxprotocol/slinky/pkg/grpc"
+	slinkygrpc "github.com/zoguxprotocol/slinky/pkg/grpc"
 )
 
 func TestClient(t *testing.T) {

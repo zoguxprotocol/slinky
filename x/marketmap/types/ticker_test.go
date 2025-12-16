@@ -3,12 +3,12 @@ package types_test
 import (
 	"testing"
 
-	"github.com/dydxprotocol/slinky/testutil"
+	"github.com/zoguxprotocol/slinky/testutil"
 
 	"github.com/stretchr/testify/require"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestTicker(t *testing.T) {

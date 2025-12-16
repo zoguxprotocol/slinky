@@ -15,9 +15,9 @@ import (
 	protoio "github.com/cosmos/gogoproto/io"
 	"github.com/cosmos/gogoproto/proto"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	slinkyabci "github.com/dydxprotocol/slinky/abci/types"
-	vetypes "github.com/dydxprotocol/slinky/abci/ve/types"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	slinkyabci "github.com/zoguxprotocol/slinky/abci/types"
+	vetypes "github.com/zoguxprotocol/slinky/abci/ve/types"
 )
 
 // ValidateOracleVoteExtension validates the vote extension provided by a validator.

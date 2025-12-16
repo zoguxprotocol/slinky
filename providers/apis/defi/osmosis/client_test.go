@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis/mocks"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis/mocks"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
 )
 
 // TestMultiClient tests the MultiClient.

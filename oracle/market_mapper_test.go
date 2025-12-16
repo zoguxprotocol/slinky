@@ -11,12 +11,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle"
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	oraclefactory "github.com/dydxprotocol/slinky/providers/factories/oracle"
-	"github.com/dydxprotocol/slinky/providers/providertest"
-	mmclienttypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	oraclefactory "github.com/zoguxprotocol/slinky/providers/factories/oracle"
+	"github.com/zoguxprotocol/slinky/providers/providertest"
+	mmclienttypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var (
@@ -181,7 +181,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 	})
 
 	t.Run("mapper has a single chain ID but fails to get a any response for the chain", func(t *testing.T) {
-		handler, factory := marketMapperFactory(t, []mmclienttypes.Chain{{ChainID: "dYdX"}})
+		handler, factory := marketMapperFactory(t, []mmclienttypes.Chain{{ChainID: "Zogux"}})
 		handler.On("CreateURL", mock.Anything).Return("", fmt.Errorf("failed to create url")).Maybe()
 
 		o, err := oracle.New(
@@ -214,7 +214,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 	})
 
 	t.Run("mapper gets response but it is the same as the current market map", func(t *testing.T) {
-		chains := []mmclienttypes.Chain{{ChainID: "dYdX"}}
+		chains := []mmclienttypes.Chain{{ChainID: "Zogux"}}
 		handler, factory := marketMapperFactory(t, chains)
 		handler.On("CreateURL", mock.Anything).Return("", nil).Maybe()
 
@@ -256,7 +256,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 	})
 
 	t.Run("mapper gets response and it is different from the current market map", func(t *testing.T) {
-		chains := []mmclienttypes.Chain{{ChainID: "dYdX"}}
+		chains := []mmclienttypes.Chain{{ChainID: "Zogux"}}
 		handler, factory := marketMapperFactory(t, chains)
 		handler.On("CreateURL", mock.Anything).Return("", nil).Maybe()
 
@@ -297,7 +297,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 	})
 
 	t.Run("can update providers with a new market map", func(t *testing.T) {
-		chains := []mmclienttypes.Chain{{ChainID: "dYdX"}}
+		chains := []mmclienttypes.Chain{{ChainID: "Zogux"}}
 		handler, factory := marketMapperFactory(t, chains)
 		handler.On("CreateURL", mock.Anything).Return("", nil).Maybe()
 
@@ -340,7 +340,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 	})
 
 	t.Run("can update providers with a new market map and write the updated market map", func(t *testing.T) {
-		chains := []mmclienttypes.Chain{{ChainID: "dYdX"}}
+		chains := []mmclienttypes.Chain{{ChainID: "Zogux"}}
 		handler, factory := marketMapperFactory(t, chains)
 		handler.On("CreateURL", mock.Anything).Return("", nil).Maybe()
 
@@ -392,7 +392,7 @@ func TestListenForMarketMapUpdates(t *testing.T) {
 		require.NoError(t, os.Remove(path))
 	})
 	t.Run("can update providers with a new market map and handle partially invalid state", func(t *testing.T) {
-		chains := []mmclienttypes.Chain{{ChainID: "dYdX"}}
+		chains := []mmclienttypes.Chain{{ChainID: "Zogux"}}
 		handler, factory := marketMapperFactory(t, chains)
 		handler.On("CreateURL", mock.Anything).Return("", nil).Maybe()
 

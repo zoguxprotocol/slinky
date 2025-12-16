@@ -7,7 +7,7 @@ export COMETBFT_VERSION := $(shell go list -m github.com/cometbft/cometbft | sed
 BIN_DIR ?= $(GOPATH)/bin
 BUILD_DIR ?= $(CURDIR)/build
 PROJECT_NAME = $(shell git remote get-url origin | xargs basename -s .git)
-HTTPS_GIT := https://github.com/dydxprotocol/slinky.git
+HTTPS_GIT := https://github.com/zoguxprotocol/slinky.git
 DOCKER := $(shell which docker)
 DOCKER_COMPOSE := $(shell which docker-compose)
 HOMEDIR ?= $(CURDIR)/tests/.slinkyd
@@ -42,7 +42,7 @@ export USE_OSMOSIS_MARKETS ?= $(USE_OSMOSIS_MARKETS)
 export USE_POLYMARKET_MARKETS ?= $(USE_POLYMARKET_MARKETS)
 export SCRIPT_DIR := $(SCRIPT_DIR)
 
-BUILD_TAGS := -X github.com/dydxprotocol/slinky/cmd/build.Build=$(TAG)
+BUILD_TAGS := -X github.com/zoguxprotocol/slinky/cmd/build.Build=$(TAG)
 
 ###############################################################################
 ###                               build                                     ###
@@ -82,30 +82,30 @@ install: tidy
 
 docker-build:
 	@echo "Building Docker images..."
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-base             -f contrib/images/slinky.base.Dockerfile .         	   --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-e2e-sidecar      -f contrib/images/slinky.sidecar.e2e.Dockerfile .      --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-local-app        -f contrib/images/slinky.local.Dockerfile .      	   --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-market-simulator -f contrib/images/slinky.market.simulator.Dockerfile . --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sidecar          -f contrib/images/slinky.sidecar.Dockerfile .      	   --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sidecar-dev      -f contrib/images/slinky.sidecar.dev.Dockerfile .      --platform linux/amd64,linux/arm64
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sim-app          -f contrib/images/slinky.sim.app.Dockerfile .     	   --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-base             -f contrib/images/slinky.base.Dockerfile .         	   --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-e2e-sidecar      -f contrib/images/slinky.sidecar.e2e.Dockerfile .      --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-local-app        -f contrib/images/slinky.local.Dockerfile .      	   --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-market-simulator -f contrib/images/slinky.market.simulator.Dockerfile . --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-sidecar          -f contrib/images/slinky.sidecar.Dockerfile .      	   --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-sidecar-dev      -f contrib/images/slinky.sidecar.dev.Dockerfile .      --platform linux/amd64,linux/arm64
+	docker buildx build -t ghcr.io/zoguxprotocol/slinky-sim-app          -f contrib/images/slinky.sim.app.Dockerfile .     	   --platform linux/amd64,linux/arm64
 
 docker-push:
 	@echo "Pushing Docker images..."
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-base             -f contrib/images/slinky.base.Dockerfile .         	   --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-e2e-sidecar      -f contrib/images/slinky.sidecar.e2e.Dockerfile .      --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-local-app        -f contrib/images/slinky.local.Dockerfile .      	   --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-market-simulator -f contrib/images/slinky.market.simulator.Dockerfile . --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sidecar          -f contrib/images/slinky.sidecar.Dockerfile .      	   --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sidecar-dev      -f contrib/images/slinky.sidecar.dev.Dockerfile .      --platform linux/amd64,linux/arm64 --push
-	docker buildx build -t ghcr.io/dydxprotocol/slinky-sim-app          -f contrib/images/slinky.sim.app.Dockerfile .     	   --platform linux/amd64,linux/arm64 --push
+	docker push ghcr.io/zoguxprotocol/slinky-base
+	docker push ghcr.io/zoguxprotocol/slinky-e2e-sidecar
+	docker push ghcr.io/zoguxprotocol/slinky-local-app
+	docker push ghcr.io/zoguxprotocol/slinky-market-simulator
+	docker push ghcr.io/zoguxprotocol/slinky-sidecar
+	docker push ghcr.io/zoguxprotocol/slinky-sidecar-dev
+	docker push ghcr.io/zoguxprotocol/slinky-sim-app
 
 e2e-docker-build:
 	@echo "Building Docker images..."
 	# don't build for multiple platforms - build in native arch for e2e test runner
 	# load to cache to provide local image for e2e test runner
-	docker buildx build --load --cache-from=type=local,src=.buildx-cache,scope=slinky-sim-app --cache-to=type=local,dest=.buildx-cache,mode=max,compression=zstd,scope=slinky-sim-app -t slinky-sim-app     -f contrib/images/slinky.sim.app.Dockerfile --load .
-	docker buildx build --load --cache-from=type=local,src=.buildx-cache,scope=slinky-e2e-sidecar --cache-to=type=local,dest=.buildx-cache,mode=max,compression=zstd,scope=slinky-e2e-sidecar -t slinky-e2e-sidecar -f contrib/images/slinky.sidecar.e2e.Dockerfile --load .
+	docker buildx build --load --cache-from=type=local,src=.buildx-cache,scope=slinky-sim-app --cache-to=type=local,dest=.buildx-cache,mode=max,compression=zstd,scope=slinky-sim-app -t ghcr.io/zoguxprotocol/slinky-sim-app     -f contrib/images/slinky.sim.app.Dockerfile .
+	docker buildx build --load --cache-from=type=local,src=.buildx-cache,scope=slinky-e2e-sidecar --cache-to=type=local,dest=.buildx-cache,mode=max,compression=zstd,scope=slinky-e2e-sidecar -t ghcr.io/zoguxprotocol/slinky-e2e-sidecar -f contrib/images/slinky.sidecar.e2e.Dockerfile .
 
 .PHONY: docker-build e2e-docker-build
 
@@ -317,7 +317,7 @@ gen-mocks:
 format:
 	@find . -name '*.go' -type f -not -path "*.git*" -not -path "*/mocks/*" -not -name '*.pb.go' -not -name '*.pulsar.go' -not -name '*.gw.go' | xargs go run mvdan.cc/gofumpt -w .
 	@find . -name '*.go' -type f -not -path "*.git*" -not -path "*/mocks/*" -not -name '*.pb.go' -not -name '*.pulsar.go' -not -name '*.gw.go' | xargs go run github.com/client9/misspell/cmd/misspell -w
-	@find . -name '*.go' -type f -not -path "*.git*" -not -path "/*mocks/*" -not -name '*.pb.go' -not -name '*.pulsar.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/dydxprotocol/slinky
+	@find . -name '*.go' -type f -not -path "*.git*" -not -path "/*mocks/*" -not -name '*.pb.go' -not -name '*.pulsar.go' -not -name '*.gw.go' | xargs go run golang.org/x/tools/cmd/goimports -w -local github.com/zoguxprotocol/slinky
 
 .PHONY: format
 

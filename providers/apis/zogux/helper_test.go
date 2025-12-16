@@ -1,19 +1,19 @@
-package dydx_test
+package zogux_test
 
 import (
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/providers/apis/kraken"
-	"github.com/dydxprotocol/slinky/providers/websockets/binance"
-	"github.com/dydxprotocol/slinky/providers/websockets/bybit"
-	coinbasews "github.com/dydxprotocol/slinky/providers/websockets/coinbase"
-	"github.com/dydxprotocol/slinky/providers/websockets/huobi"
-	"github.com/dydxprotocol/slinky/providers/websockets/kucoin"
-	"github.com/dydxprotocol/slinky/providers/websockets/mexc"
-	"github.com/dydxprotocol/slinky/providers/websockets/okx"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/kraken"
+	"github.com/zoguxprotocol/slinky/providers/websockets/binance"
+	"github.com/zoguxprotocol/slinky/providers/websockets/bybit"
+	coinbasews "github.com/zoguxprotocol/slinky/providers/websockets/coinbase"
+	"github.com/zoguxprotocol/slinky/providers/websockets/huobi"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kucoin"
+	"github.com/zoguxprotocol/slinky/providers/websockets/mexc"
+	"github.com/zoguxprotocol/slinky/providers/websockets/okx"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
-const dYdXResponseValid = `
+const ZoguxResponseValid = `
 {
 	"market_params": [
 	  {
@@ -48,7 +48,7 @@ const dYdXResponseValid = `
 }
 `
 
-const dYdXResponseInvalid = `
+const ZoguxResponseInvalid = `
 {
 	"market_params": [
 	  {

@@ -8,10 +8,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/base/api/errors"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/base/api/errors"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 )
 
 // RestAPIFetcher handles the logic of fetching prices from a REST API. This implementation

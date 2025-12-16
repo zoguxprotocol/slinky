@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/pkg/slices"
+	"github.com/zoguxprotocol/slinky/pkg/slices"
 )
 
 func TestChunkSlice(t *testing.T) {

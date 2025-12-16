@@ -6,8 +6,8 @@ import (
 	"github.com/skip-mev/chaintestutil/sample"
 	"github.com/stretchr/testify/require"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func TestValidateBasicMsgUpsertMarket(t *testing.T) {

@@ -3,7 +3,7 @@ package mexc
 import (
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 // ref: https://mexcdevelop.github.io/apidocs/spot_v3_en/#websocket-market-streams

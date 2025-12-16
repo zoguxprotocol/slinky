@@ -1,20 +1,20 @@
 <AccordionGroup>
-    <Accordion title="dYdX v6">
+    <Accordion title="Zogux v6">
 
-        **The minimum required version for Connect with dYdX v6 is `v1.0.5+`.**
+        **The minimum required version for Connect with Zogux v6 is `v1.0.5+`.**
 
         First, please ensure you've received your **API keys** for Raydium markets. If you have not received API keys, please reach out to the team in the relevant channels.
 
         Next, place your API keys under their corresponding URLs in the following file and save it to your system. Keep the file path handy as we will pass it into a flag when running Connect.
 
-        We will also supply an edited configuration for the `dydx_migration_api` which facilitates graceful migration from dydx's `x/prices` to `x/marketmap`.
+        We will also supply an edited configuration for the `zogux_migration_api` which facilitates graceful migration from zogux's `x/prices` to `x/marketmap`.
 
         **Make sure to fill in the URL for the REST endpoint and gRPC endpoint of your node** (in that order). The migration API will _not_ work if the REST API endpoint is not the first endpoint in the list.
 
         ```json oracle.json
         {
            "providers":{
-              "dydx_migration_api":{
+              "zogux_migration_api":{
                  "api":{
                     "endpoints":[
                        {
@@ -58,7 +58,7 @@
                           }
                        },
                        {
-                          "url":"https://dydx.helius-rpc.com",
+                          "url":"https://zogux.helius-rpc.com",
                           "authentication":{
                              "apiKeyHeader":"x-api-key",
                              "apiKey":"API KEY"
@@ -75,13 +75,13 @@
 
         ```shell
         slinky \
-        --marketmap-provider dydx_migration_api \
+        --marketmap-provider zogux_migration_api \
         --oracle-config path/to/oracle.json
         ```
     </Accordion>
-    <Accordion title="dYdX v5">
+    <Accordion title="Zogux v5">
 
-        **The minimum required version for Connect with dYdX v5 is `v1.0.5+`.**
+        **The minimum required version for Connect with Zogux v5 is `v1.0.5+`.**
 
         First, please ensure you've received your API keys for Raydium markets. If you have not received API keys, please reach out to the team in the relevant channels.
 
@@ -122,7 +122,7 @@
                           }
                        },
                        {
-                          "url":"https://dydx.helius-rpc.com",
+                          "url":"https://zogux.helius-rpc.com",
                           "authentication":{
                              "apiKeyHeader":"x-api-key",
                              "apiKey":"API KEY"
@@ -134,12 +134,12 @@
            }
         }
         ```
-        With your dYdX node's REST API endpoint and the `oracle.json` file path, enter the following command to run Connect.
+        With your Zogux node's REST API endpoint and the `oracle.json` file path, enter the following command to run Connect.
 
         ```shell
         slinky \
-            --marketmap-provider dydx_api \
-            --market-map-endpoint https://<dydx-node REST API endpoint> \
+            --marketmap-provider zogux_api \
+            --market-map-endpoint https://<zogux-node REST API endpoint> \
             --oracle-config path/to/oracle.json
         ```
     </Accordion>

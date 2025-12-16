@@ -9,7 +9,7 @@ managed:
       - buf.build/cosmos/gogo-proto
       - buf.build/cosmos/cosmos-proto
     override:
-      buf.build/dydxprotocol/slinky: github.com/dydxprotocol/slinky/api
+      buf.build/zoguxprotocol/slinky: github.com/zoguxprotocol/slinky/api
 plugins:
   - name: go-pulsar
     out: ../api

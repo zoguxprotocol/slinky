@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/oracle/keeper"
-	"github.com/dydxprotocol/slinky/x/oracle/types"
-	"github.com/dydxprotocol/slinky/x/oracle/types/mocks"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/oracle/keeper"
+	"github.com/zoguxprotocol/slinky/x/oracle/types"
+	"github.com/zoguxprotocol/slinky/x/oracle/types/mocks"
 )
 
 const (

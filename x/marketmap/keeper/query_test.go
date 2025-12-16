@@ -1,9 +1,9 @@
 package keeper_test
 
 import (
-	slinkytypes "github.com/dydxprotocol/slinky/pkg/types"
-	"github.com/dydxprotocol/slinky/x/marketmap/keeper"
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	slinkytypes "github.com/zoguxprotocol/slinky/pkg/types"
+	"github.com/zoguxprotocol/slinky/x/marketmap/keeper"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 func (s *KeeperTestSuite) TestMarketMap() {

@@ -38,7 +38,7 @@ The current set of supported providers are:
         * `curl https://api.exchange.coinbase.com/currencies | jq`
         * `curl https://api.exchange.coinbase.com/products | jq`
     * Check if a given market is supported: 
-        * `curl https://api.coinbase.com/v2/prices/{DYDX-USDC}/spot | jq`
+        * `curl https://api.coinbase.com/v2/prices/{ZOGUX-USDC}/spot | jq`
 * [Crypto.com](./cryptodotcom/README.md) - Crypto.com is a cryptocurrency exchange that provides a free API for fetching cryptocurrency data. Crypto.com is a **primary data source** for the oracle.
     * Check all supported markets:
         * `curl https://api.crypto.com/v2/public/get-instruments | jq`

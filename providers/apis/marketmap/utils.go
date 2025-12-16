@@ -3,7 +3,7 @@ package marketmap
 import (
 	"time"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 const (

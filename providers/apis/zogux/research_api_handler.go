@@ -1,4 +1,4 @@
-package dydx
+package zogux
 
 import (
 	"encoding/json"
@@ -8,12 +8,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/pkg/arrays"
-	"github.com/dydxprotocol/slinky/providers/apis/coinmarketcap"
-	dydxtypes "github.com/dydxprotocol/slinky/providers/apis/dydx/types"
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
-	"github.com/dydxprotocol/slinky/service/clients/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/pkg/arrays"
+	"github.com/zoguxprotocol/slinky/providers/apis/coinmarketcap"
+	zoguxtypes "github.com/zoguxprotocol/slinky/providers/apis/zogux/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
+	"github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
 )
 
 var _ types.MarketMapAPIDataHandler = (*ResearchAPIHandler)(nil)
@@ -40,12 +40,12 @@ func NewResearchAPIHandler(
 			api:    api,
 			logger: logger,
 		},
-		url:     api.Endpoints[1].URL, // We assume the first URL is the endpoint of the dydx mainnet
+		url:     api.Endpoints[1].URL, // We assume the first URL is the endpoint of the zogux mainnet
 		onlyCMC: api.Name == ResearchCMCAPIHandlerName,
 	}, nil
 }
 
-// ResearchAPIHandler is a subclass of the dydx_chain.ResearchAPIHandler. It interprets the dydx ResearchJSON
+// ResearchAPIHandler is a subclass of the zogux_chain.ResearchAPIHandler. It interprets the zogux ResearchJSON
 // as a market-map.
 type ResearchAPIHandler struct {
 	APIHandler
@@ -56,31 +56,31 @@ type ResearchAPIHandler struct {
 	onlyCMC bool
 }
 
-// CreateURL returns a static url (the url of the first configured endpoint). If the dydx chain is not
+// CreateURL returns a static url (the url of the first configured endpoint). If the zogux chain is not
 // configured in the request, an error is returned.
 func (h *ResearchAPIHandler) CreateURL(chains []types.Chain) (string, error) {
-	// expect at least one chain to be a dydx chain
+	// expect at least one chain to be a zogux chain
 	if _, ok := arrays.CheckEntryInArray(types.Chain{
 		ChainID: ChainID,
 	}, chains); !ok {
-		return "", fmt.Errorf("dydx chain is not configured in request for the dydx research json")
+		return "", fmt.Errorf("zogux chain is not configured in request for the zogux research json")
 	}
 
 	return h.url, nil
 }
 
-// ParseResponse parses the response from the dydx ResearchJSON API into a MarketMap, and
-// unmarshals the market-map in accordance with the underlying dydx ResearchAPIHandler.
+// ParseResponse parses the response from the zogux ResearchJSON API into a MarketMap, and
+// unmarshals the market-map in accordance with the underlying zogux ResearchAPIHandler.
 func (h *ResearchAPIHandler) ParseResponse(
 	chains []types.Chain,
 	resp *http.Response,
 ) types.MarketMapResponse {
-	// expect at least one chain to be a dydx chain
+	// expect at least one chain to be a zogux chain
 	chain, ok := arrays.CheckEntryInArray(types.Chain{
 		ChainID: ChainID,
 	}, chains)
 	if !ok {
-		h.logger.Error("dydx chain is not configured in request for the dydx research json")
+		h.logger.Error("zogux chain is not configured in request for the zogux research json")
 		return types.NewMarketMapResponseWithErr(
 			chains,
 			providertypes.NewErrorWithCode(
@@ -91,27 +91,27 @@ func (h *ResearchAPIHandler) ParseResponse(
 	}
 
 	// parse the response
-	// unmarshal the response body into a dydx research json
-	var research dydxtypes.ResearchJSON
+	// unmarshal the response body into a zogux research json
+	var research zoguxtypes.ResearchJSON
 	if err := json.NewDecoder(resp.Body).Decode(&research); err != nil {
-		h.logger.Error("failed to parse dydx research json response", zap.Error(err))
+		h.logger.Error("failed to parse zogux research json response", zap.Error(err))
 		return types.NewMarketMapResponseWithErr(
 			chains,
 			providertypes.NewErrorWithCode(
-				fmt.Errorf("failed to parse dydx research json response: %w", err),
+				fmt.Errorf("failed to parse zogux research json response: %w", err),
 				providertypes.ErrorFailedToDecode,
 			),
 		)
 	}
 
-	// convert the dydx research json into a QueryAllMarketsParamsResponse
+	// convert the zogux research json into a QueryAllMarketsParamsResponse
 	respMarketParams, err := h.researchJSONToQueryAllMarketsParamsResponse(research)
 	if err != nil {
-		h.logger.Error("failed to convert dydx research json into QueryAllMarketsParamsResponse", zap.Error(err))
+		h.logger.Error("failed to convert zogux research json into QueryAllMarketsParamsResponse", zap.Error(err))
 		return types.NewMarketMapResponseWithErr(
 			chains,
 			providertypes.NewErrorWithCode(
-				fmt.Errorf("failed to convert dydx research json into QueryAllMarketsParamsResponse: %w", err),
+				fmt.Errorf("failed to convert zogux research json into QueryAllMarketsParamsResponse: %w", err),
 				providertypes.ErrorFailedToDecode,
 			),
 		)
@@ -130,28 +130,28 @@ func (h *ResearchAPIHandler) ParseResponse(
 		)
 	}
 
-	// resolve the response under the dydx chain
+	// resolve the response under the zogux chain
 	resolved := make(types.ResolvedMarketMap)
 	resolved[chain] = types.NewMarketMapResult(&marketMap, time.Now())
 
-	h.logger.Debug("successfully resolved dydx research json into a market map", zap.Int("num_markets", len(marketMap.MarketMap.Markets)))
+	h.logger.Debug("successfully resolved zogux research json into a market map", zap.Int("num_markets", len(marketMap.MarketMap.Markets)))
 	return types.NewMarketMapResponse(resolved, nil)
 }
 
-// researchJSONToQueryAllMarketsParamsResponse converts a dydx research json into a
+// researchJSONToQueryAllMarketsParamsResponse converts a zogux research json into a
 // QueryAllMarketsParamsResponse.
-func (h *ResearchAPIHandler) researchJSONToQueryAllMarketsParamsResponse(research dydxtypes.ResearchJSON) (dydxtypes.QueryAllMarketParamsResponse, error) {
+func (h *ResearchAPIHandler) researchJSONToQueryAllMarketsParamsResponse(research zoguxtypes.ResearchJSON) (zoguxtypes.QueryAllMarketParamsResponse, error) {
 	// iterate over all entries in the research json + unmarshal it's market-params
-	resp := dydxtypes.QueryAllMarketParamsResponse{}
+	resp := zoguxtypes.QueryAllMarketParamsResponse{}
 	for _, market := range research {
 		if h.onlyCMC && market.CMCID < 0 {
 			continue
 		}
 
-		// convert the dydx research json market-param into a MarketParam struct
+		// convert the zogux research json market-param into a MarketParam struct
 		marketParam, err := h.marketParamFromResearchJSONMarketParam(market)
 		if err != nil {
-			return dydxtypes.QueryAllMarketParamsResponse{}, err
+			return zoguxtypes.QueryAllMarketParamsResponse{}, err
 		}
 
 		// unmarshal the market-params into a MarketParam struct
@@ -161,27 +161,27 @@ func (h *ResearchAPIHandler) researchJSONToQueryAllMarketsParamsResponse(researc
 	return resp, nil
 }
 
-// marketParamFromResearchJSONMarketParam converts a dydx research json market-param
+// marketParamFromResearchJSONMarketParam converts a zogux research json market-param
 // into a MarketParam struct.
-func (h *ResearchAPIHandler) marketParamFromResearchJSONMarketParam(marketParam dydxtypes.Params) (dydxtypes.MarketParam, error) {
-	var exchangeConfigJSON dydxtypes.ExchangeConfigJson
+func (h *ResearchAPIHandler) marketParamFromResearchJSONMarketParam(marketParam zoguxtypes.Params) (zoguxtypes.MarketParam, error) {
+	var exchangeConfigJSON zoguxtypes.ExchangeConfigJson
 	if !h.onlyCMC {
-		exchangeConfigJSON = dydxtypes.ExchangeConfigJson{
+		exchangeConfigJSON = zoguxtypes.ExchangeConfigJson{
 			Exchanges: marketParam.ExchangeConfigJSON,
 		}
 	} else {
-		exchange := dydxtypes.ExchangeMarketConfigJson{
+		exchange := zoguxtypes.ExchangeMarketConfigJson{
 			ExchangeName: coinmarketcap.Name,
 			Ticker:       fmt.Sprintf("%d", marketParam.CMCID),
 		}
-		exchangeConfigJSON = dydxtypes.ExchangeConfigJson{
-			Exchanges: []dydxtypes.ExchangeMarketConfigJson{exchange},
+		exchangeConfigJSON = zoguxtypes.ExchangeConfigJson{
+			Exchanges: []zoguxtypes.ExchangeMarketConfigJson{exchange},
 		}
 	}
 	// marshal to a json string
 	exchangeConfigJSONBz, err := json.Marshal(exchangeConfigJSON)
 	if err != nil {
-		return dydxtypes.MarketParam{}, err
+		return zoguxtypes.MarketParam{}, err
 	}
 
 	var minExchanges uint32
@@ -191,7 +191,7 @@ func (h *ResearchAPIHandler) marketParamFromResearchJSONMarketParam(marketParam 
 		minExchanges = marketParam.MinExchanges
 	}
 
-	return dydxtypes.MarketParam{
+	return zoguxtypes.MarketParam{
 		Id:                 marketParam.ID,
 		Pair:               marketParam.Pair,
 		Exponent:           int32(marketParam.Exponent),

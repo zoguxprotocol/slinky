@@ -1,4 +1,4 @@
-package dydx
+package zogux
 
 import (
 	"encoding/json"
@@ -9,29 +9,29 @@ import (
 
 	"github.com/gagliardetto/solana-go"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/raydium"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/uniswapv3"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/raydium"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/uniswapv3"
 )
 
 const (
 	// Name is the name of the MarketMap provider.
-	Name = "dydx_api"
+	Name = "zogux_api"
 
-	// SwitchOverAPIHandlerName is the name of the dYdX switch over API.
-	SwitchOverAPIHandlerName = "dydx_migration_api"
+	// SwitchOverAPIHandlerName is the name of the Zogux switch over API.
+	SwitchOverAPIHandlerName = "zogux_migration_api"
 
-	// ResearchAPIHandlerName is the name of the dYdX research json API.
-	ResearchAPIHandlerName = "dydx_research_json_api"
+	// ResearchAPIHandlerName is the name of the Zogux research json API.
+	ResearchAPIHandlerName = "zogux_research_json_api"
 
-	// ResearchCMCAPIHandlerName is the name of the dYdX research json API that only returns CoinMarketCap markets.
-	ResearchCMCAPIHandlerName = "dydx_research_coinmarketcap_api"
+	// ResearchCMCAPIHandlerName is the name of the Zogux research json API that only returns CoinMarketCap markets.
+	ResearchCMCAPIHandlerName = "zogux_research_coinmarketcap_api"
 
-	// ChainID is the chain ID for the dYdX market map provider.
-	ChainID = "dydx-node"
+	// ChainID is the chain ID for the Zogux market map provider.
+	ChainID = "zogux-node"
 
-	// Endpoint is the endpoint for the dYdX market map API.
-	Endpoint = "%s/dydxprotocol/prices/params/market?pagination.limit=10000"
+	// Endpoint is the endpoint for the Zogux market map API.
+	Endpoint = "%s/zoguxprotocol/prices/params/market?pagination.limit=10000"
 
 	// Delimiter is the delimiter used to separate the base and quote assets in a pair.
 	Delimiter = "-"
@@ -49,7 +49,7 @@ const (
 	RaydiumTickerSeparator = Delimiter
 )
 
-// DefaultAPIConfig returns the default configuration for the dYdX market map API.
+// DefaultAPIConfig returns the default configuration for the Zogux market map API.
 var DefaultAPIConfig = config.APIConfig{
 	Name:             Name,
 	Atomic:           true,
@@ -61,7 +61,7 @@ var DefaultAPIConfig = config.APIConfig{
 	Endpoints:        []config.Endpoint{{URL: "http://localhost:1317"}},
 }
 
-// DefaultSwitchOverAPIConfig returns the default configuration for the dYdX switch over API provider.
+// DefaultSwitchOverAPIConfig returns the default configuration for the Zogux switch over API provider.
 var DefaultSwitchOverAPIConfig = config.APIConfig{
 	Name:             SwitchOverAPIHandlerName,
 	Atomic:           true,
@@ -80,7 +80,7 @@ var DefaultSwitchOverAPIConfig = config.APIConfig{
 	},
 }
 
-// DefaultResearchAPIConfig returns the default configuration for the dYdX market map API.
+// DefaultResearchAPIConfig returns the default configuration for the Zogux market map API.
 var DefaultResearchAPIConfig = config.APIConfig{
 	Name:             ResearchAPIHandlerName,
 	Atomic:           true,
@@ -91,15 +91,15 @@ var DefaultResearchAPIConfig = config.APIConfig{
 	MaxQueries:       1,
 	Endpoints: []config.Endpoint{
 		{
-			URL: "https://dydx-api.lavenderfive.com",
+			URL: "https://zogux-api.lavenderfive.com",
 		},
 		{
-			URL: "https://raw.githubusercontent.com/dydxprotocol/v4-web/main/public/configs/otherMarketData.json",
+			URL: "https://raw.githubusercontent.com/zoguxprotocol/v4-web/main/public/configs/otherMarketData.json",
 		},
 	},
 }
 
-// DefaultResearchCMCAPIConfig returns the default configuration for the dYdX market map API that only returns CoinMarketCap markets.
+// DefaultResearchCMCAPIConfig returns the default configuration for the Zogux market map API that only returns CoinMarketCap markets.
 var DefaultResearchCMCAPIConfig = config.APIConfig{
 	Name:             ResearchCMCAPIHandlerName,
 	Atomic:           true,
@@ -110,15 +110,15 @@ var DefaultResearchCMCAPIConfig = config.APIConfig{
 	MaxQueries:       1,
 	Endpoints: []config.Endpoint{
 		{
-			URL: "https://dydx-api.lavenderfive.com",
+			URL: "https://zogux-api.lavenderfive.com",
 		},
 		{
-			URL: "https://raw.githubusercontent.com/dydxprotocol/v4-web/main/public/configs/otherMarketData.json",
+			URL: "https://raw.githubusercontent.com/zoguxprotocol/v4-web/main/public/configs/otherMarketData.json",
 		},
 	},
 }
 
-// UniswapV3MetadataFromTicker returns the metadataJSON string for uniswapv3_api according to the dYdX encoding.
+// UniswapV3MetadataFromTicker returns the metadataJSON string for uniswapv3_api according to the Zogux encoding.
 // This is PoolAddress-DecimalsBase-DecimalsQuote.
 func UniswapV3MetadataFromTicker(ticker string, invert bool) (string, error) {
 	fields := strings.Split(ticker, UniswapV3TickerSeparator)
@@ -156,7 +156,7 @@ func UniswapV3MetadataFromTicker(ticker string, invert bool) (string, error) {
 }
 
 // RaydiumMetadataFromTicker extracts json-metadata from a ticker for Raydium.
-// All raydium tickers on dydx will be formatted as follows
+// All raydium tickers on zogux will be formatted as follows
 // (BASE-QUOTE-BASE_VAULT-BASE_DECIMALS-QUOTE_VAULT-QUOTE_DECIMALS-OPEN_ORDERS_ADDRESS-AMM_INFO_ADDRESS).
 func RaydiumMetadataFromTicker(ticker string) (string, error) {
 	// split fields by separator and expect there to be at least 6 values

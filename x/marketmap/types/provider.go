@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/dydxprotocol/slinky/pkg/json"
+	"github.com/zoguxprotocol/slinky/pkg/json"
 )
 
 // ValidateBasic performs basic validation on a ProviderConfig.

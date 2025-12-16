@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 func TestMetricsConfig(t *testing.T) {

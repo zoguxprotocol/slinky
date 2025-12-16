@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/ethmulticlient"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/ethmulticlient/mocks"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/ethmulticlient"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/ethmulticlient/mocks"
 )
 
 func TestMultiClient(t *testing.T) {

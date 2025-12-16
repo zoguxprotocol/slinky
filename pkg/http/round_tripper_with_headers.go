@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dydxprotocol/slinky/cmd/build"
+	"github.com/zoguxprotocol/slinky/cmd/build"
 )
 
 const (

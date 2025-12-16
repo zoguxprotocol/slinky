@@ -9,14 +9,14 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	oraclemetrics "github.com/dydxprotocol/slinky/oracle/metrics"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	apimetrics "github.com/dydxprotocol/slinky/providers/base/api/metrics"
-	providermetrics "github.com/dydxprotocol/slinky/providers/base/metrics"
-	wsmetrics "github.com/dydxprotocol/slinky/providers/base/websocket/metrics"
-	mmclienttypes "github.com/dydxprotocol/slinky/service/clients/marketmap/types"
-	mmtypes "github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	oraclemetrics "github.com/zoguxprotocol/slinky/oracle/metrics"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	apimetrics "github.com/zoguxprotocol/slinky/providers/base/api/metrics"
+	providermetrics "github.com/zoguxprotocol/slinky/providers/base/metrics"
+	wsmetrics "github.com/zoguxprotocol/slinky/providers/base/websocket/metrics"
+	mmclienttypes "github.com/zoguxprotocol/slinky/service/clients/marketmap/types"
+	mmtypes "github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 var _ Oracle = (*OracleImpl)(nil)

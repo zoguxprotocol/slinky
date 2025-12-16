@@ -5,9 +5,9 @@ import (
 	cometproto "github.com/cometbft/cometbft/proto/tendermint/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/dydxprotocol/slinky/abci/strategies/codec"
-	"github.com/dydxprotocol/slinky/abci/strategies/currencypair"
-	"github.com/dydxprotocol/slinky/abci/ve"
+	"github.com/zoguxprotocol/slinky/abci/strategies/codec"
+	"github.com/zoguxprotocol/slinky/abci/strategies/currencypair"
+	"github.com/zoguxprotocol/slinky/abci/ve"
 )
 
 // ValidateExtendedCommitInfo validates the extended commit info for a block. It first

@@ -6,16 +6,16 @@ import (
 	"math/big"
 	"testing"
 
-	providertypes "github.com/dydxprotocol/slinky/providers/types"
+	providertypes "github.com/zoguxprotocol/slinky/providers/types"
 
 	"github.com/klauspost/compress/gzip"
 
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
-	"github.com/dydxprotocol/slinky/providers/websockets/huobi"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
+	"github.com/zoguxprotocol/slinky/providers/websockets/huobi"
 )
 
 var (

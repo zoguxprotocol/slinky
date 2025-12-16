@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
+	"github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
 )
 
 type (

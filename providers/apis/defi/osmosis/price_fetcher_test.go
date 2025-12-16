@@ -12,11 +12,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	oracleconfig "github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis"
-	"github.com/dydxprotocol/slinky/providers/apis/defi/osmosis/mocks"
-	"github.com/dydxprotocol/slinky/providers/base/api/metrics"
+	oracleconfig "github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis"
+	"github.com/zoguxprotocol/slinky/providers/apis/defi/osmosis/mocks"
+	"github.com/zoguxprotocol/slinky/providers/base/api/metrics"
 )
 
 const (

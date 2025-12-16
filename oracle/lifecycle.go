@@ -7,7 +7,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/oracle/types"
 )
 
 // Start starts the (blocking) oracle. This will initialize the oracle

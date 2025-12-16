@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil/sims"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/config"
 )
 
 func TestValidateBasic(t *testing.T) {

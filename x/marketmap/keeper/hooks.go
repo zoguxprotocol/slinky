@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/dydxprotocol/slinky/x/marketmap/types"
+	"github.com/zoguxprotocol/slinky/x/marketmap/types"
 )
 
 // Hooks gets the hooks for x/marketmap keeper.

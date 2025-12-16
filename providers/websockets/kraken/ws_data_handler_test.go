@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/dydxprotocol/slinky/oracle/config"
-	"github.com/dydxprotocol/slinky/oracle/types"
-	"github.com/dydxprotocol/slinky/providers/base/websocket/handlers"
-	"github.com/dydxprotocol/slinky/providers/websockets/kraken"
+	"github.com/zoguxprotocol/slinky/oracle/config"
+	"github.com/zoguxprotocol/slinky/oracle/types"
+	"github.com/zoguxprotocol/slinky/providers/base/websocket/handlers"
+	"github.com/zoguxprotocol/slinky/providers/websockets/kraken"
 )
 
 var (

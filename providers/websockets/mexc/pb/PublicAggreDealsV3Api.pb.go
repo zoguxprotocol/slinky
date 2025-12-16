@@ -9,11 +9,12 @@
 package pb
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -156,7 +157,7 @@ const file_PublicAggreDealsV3Api_proto_rawDesc = "" +
 	"\bquantity\x18\x02 \x01(\tR\bquantity\x12\x1c\n" +
 	"\ttradeType\x18\x03 \x01(\x05R\ttradeType\x12\x12\n" +
 	"\x04time\x18\x04 \x01(\x03R\x04timeB{\n" +
-	"\x1ccom.mxc.push.common.protobufB\x1aPublicAggreDealsV3ApiProtoH\x01P\x01Z;github.com/dydxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
+	"\x1ccom.mxc.push.common.protobufB\x1aPublicAggreDealsV3ApiProtoH\x01P\x01Z;github.com/zoguxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
 
 var (
 	file_PublicAggreDealsV3Api_proto_rawDescOnce sync.Once
