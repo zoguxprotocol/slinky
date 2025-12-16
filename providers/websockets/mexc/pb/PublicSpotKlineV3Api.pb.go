@@ -9,11 +9,12 @@
 package pb
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -155,7 +156,7 @@ const file_PublicSpotKlineV3Api_proto_rawDesc = "" +
 	"\x06volume\x18\a \x01(\tR\x06volume\x12\x16\n" +
 	"\x06amount\x18\b \x01(\tR\x06amount\x12\x1c\n" +
 	"\twindowEnd\x18\t \x01(\x03R\twindowEndBz\n" +
-	"\x1ccom.mxc.push.common.protobufB\x19PublicSpotKlineV3ApiProtoH\x01P\x01Z;github.com/dydxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
+	"\x1ccom.mxc.push.common.protobufB\x19PublicSpotKlineV3ApiProtoH\x01P\x01Z;github.com/zoguxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
 
 var (
 	file_PublicSpotKlineV3Api_proto_rawDescOnce sync.Once

@@ -9,11 +9,12 @@
 package pb
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -74,7 +75,7 @@ const file_PublicBookTickerBatchV3Api_proto_rawDesc = "" +
 	" PublicBookTickerBatchV3Api.proto\x1a\x1bPublicBookTickerV3Api.proto\"J\n" +
 	"\x1aPublicBookTickerBatchV3Api\x12,\n" +
 	"\x05items\x18\x01 \x03(\v2\x16.PublicBookTickerV3ApiR\x05itemsB\x80\x01\n" +
-	"\x1ccom.mxc.push.common.protobufB\x1fPublicBookTickerBatchV3ApiProtoH\x01P\x01Z;github.com/dydxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
+	"\x1ccom.mxc.push.common.protobufB\x1fPublicBookTickerBatchV3ApiProtoH\x01P\x01Z;github.com/zoguxprotocol/slinky/providers/websockets/mexc/pbb\x06proto3"
 
 var (
 	file_PublicBookTickerBatchV3Api_proto_rawDescOnce sync.Once

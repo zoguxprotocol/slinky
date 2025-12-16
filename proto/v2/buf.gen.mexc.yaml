@@ -8,8 +8,8 @@ managed:
     - module: buf.build/cosmos/cosmos-proto
   override:
     - file_option: go_package_prefix
-      module: buf.build/dydxprotocol/vendors-mexc-proto
-      value: github.com/dydxprotocol/slinky/providers/websockets/mexc/pb
+      module: buf.build/zoguxprotocol/vendors-mexc-proto
+      value: github.com/zoguxprotocol/slinky/providers/websockets/mexc/pb
 
 plugins:
   - remote: buf.build/protocolbuffers/go
